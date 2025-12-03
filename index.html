@@ -259,7 +259,7 @@
           </button>
         </div>
         <small class="text-muted d-block mt-2">
-          Showing <span id="visibleCount">28</span> of 28 birds
+          Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> birds
         </small>
       </div>
     </div>
@@ -692,6 +692,10 @@
     const randomBtn     = document.getElementById('randomBtn');
     const visibleCountEl= document.getElementById('visibleCount');
     const cols          = Array.from(document.querySelectorAll('.row .col'));
+    // Set total bird count automatically
+    const totalCountEl = document.getElementById('totalCount');
+    totalCountEl.textContent = cols.length;
+
 
     function updateVisibleCount() {
       const visible = cols.filter(col => col.style.display !== 'none').length;
