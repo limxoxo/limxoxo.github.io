@@ -64,6 +64,21 @@
       opacity: 1;
     }
 
+        /* Filter panel: hidden by default, fades in when opened */
+    #filterPanel {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      pointer-events: none;
+      transition: opacity 0.5s ease, max-height 0.5s ease;
+    }
+
+    #filterPanel.open {
+      opacity: 1;
+      max-height: 80px; /* adjust if you add more filters */
+      pointer-events: auto;
+    }
+
 
     /* ----------------------------- 
        BASE LIGHT THEME
@@ -313,15 +328,38 @@
       <div class="col-md-6">
         <div class="input-group">
           <input id="searchInput" type="text" class="form-control" placeholder="Search by bird name...">
+
+          <!-- FILTER TOGGLE BUTTON -->
+          <button id="filterToggleBtn" class="btn btn-outline-secondary" type="button">
+            Filters ▾
+          </button>
+
           <button id="randomBtn" class="btn btn-outline-secondary" type="button">
             🎲 Random bird
           </button>
         </div>
+
+        <!-- FILTER PANEL (hidden by default) -->
+        <div id="filterPanel" class="text-start mt-2">
+          <small class="text-muted me-2">Filter by location:</small>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input location-checkbox" type="checkbox" id="locTas" value="tasmania">
+            <label class="form-check-label" for="locTas">Tasmania</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input location-checkbox" type="checkbox" id="locVic" value="victoria">
+            <label class="form-check-label" for="locVic">Victoria</label>
+          </div>
+        </div>
+
         <small class="text-muted d-block mt-2">
           Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> birds
         </small>
       </div>
     </div>
+
   </section>
 
   <!-- GALLERY -->
@@ -333,7 +371,9 @@
           <div class="photo-box">
             <img src="images/bird-1.jpg"
                  class="gallery-img"
-                 data-title="New Holland Honeyeater">
+                 data-title="New Holland Honeyeater"
+                 data-location="tasmania"
+                 data-place="Louisa Hinsby Park">
             <div class="bird-caption">New Holland Honeyeater</div>
 
           </div>
@@ -344,7 +384,9 @@
           <div class="photo-box">
             <img src="images/bird-2.jpg"
                  class="gallery-img"
-                 data-title="New Holland Honeyeater">
+                 data-title="New Holland Honeyeater"
+                 data-location="tasmania"
+                 data-place="Louisa Hinsby Park">
             <div class="bird-caption">New Holland Honeyeater</div>
 
           </div>
@@ -355,7 +397,9 @@
           <div class="photo-box">
             <img src="images/bird-3.jpg"
                  class="gallery-img"
-                 data-title="Common Blackbird">
+                 data-title="Common Blackbird"
+                 data-location="tasmania"
+                 data-place="Louisa Hinsby Park">
             <div class="bird-caption">Common Blackbird</div>
 
           </div>
@@ -366,7 +410,9 @@
           <div class="photo-box">
             <img src="images/bird-4.jpg"
                  class="gallery-img"
-                 data-title="Little Pied Cormorant">
+                 data-title="Little Pied Cormorant"
+                 data-location="tasmania"
+                 data-place="Hinsby Beach">
             <div class="bird-caption">Little Pied Cormorant</div>
 
           </div>
@@ -377,7 +423,9 @@
           <div class="photo-box">
             <img src="images/bird-5.jpg"
                  class="gallery-img"
-                 data-title="Little Pied Cormorant">
+                 data-title="Little Pied Cormorant"
+                 data-location="tasmania"
+                 data-place="Hinsby Beach">
             <div class="bird-caption">Little Pied Cormorant</div>
 
           </div>
@@ -388,7 +436,9 @@
           <div class="photo-box">
             <img src="images/bird-6.jpg"
                  class="gallery-img"
-                 data-title="House Sparrow">
+                 data-title="House Sparrow"
+                 data-location="tasmania"
+                 data-place="Louisa Hinsby Park">
             <div class="bird-caption">House Sparrow</div>
 
           </div>
@@ -399,7 +449,9 @@
           <div class="photo-box">
             <img src="images/bird-7.jpg"
                  class="gallery-img"
-                 data-title="Australian Pied Oystercatcher">
+                 data-title="Australian Pied Oystercatcher"
+                 data-location="tasmania"
+                 data-place="Hinsby Beach">
             <div class="bird-caption">Australian Pied Oysercatcher</div>
 
           </div>
@@ -410,7 +462,9 @@
           <div class="photo-box">
             <img src="images/bird-8.jpg"
                  class="gallery-img"
-                 data-title="Tasmanian Nativehen">
+                 data-title="Tasmanian Nativehen"
+                 data-location="tasmania"
+                 data-place="Rotary Centennial Park">
             <div class="bird-caption">Tasmanian Nativehen</div>
 
           </div>
@@ -421,7 +475,9 @@
           <div class="photo-box">
             <img src="images/bird-9.jpg"
                  class="gallery-img"
-                 data-title="Eastern Rosella">
+                 data-title="Eastern Rosella"
+                 data-location="tasmania"
+                 data-place="Rotary Centennial Park">
             <div class="bird-caption">Eastern Rosella</div>
 
           </div>
@@ -432,7 +488,9 @@
           <div class="photo-box">
             <img src="images/bird-10.jpg"
                  class="gallery-img"
-                 data-title="Pacific Black Duck">
+                 data-title="Pacific Black Duck"
+                 data-location="tasmania"
+                 data-place="Rotary Centennial Park">
             <div class="bird-caption">Pacific Black Duck</div>
 
           </div>
@@ -443,7 +501,9 @@
           <div class="photo-box">
             <img src="images/bird-11.jpg"
                  class="gallery-img"
-                 data-title="Dusky Robin">
+                 data-title="Dusky Robin"
+                 data-location="tasmania"
+                 data-place="Peter Murrell Conservation Area">
             <div class="bird-caption">Dusky Robin</div>
 
           </div>
@@ -454,7 +514,9 @@
           <div class="photo-box">
             <img src="images/bird-12.jpg"
                  class="gallery-img"
-                 data-title="Brush Bronzewing">
+                 data-title="Brush Bronzewing"
+                 data-location="tasmania"
+                 data-place="Peter Murrell Conservation Area">
             <div class="bird-caption">Brush Bronzewing</div>
 
           </div>
@@ -465,7 +527,9 @@
           <div class="photo-box">
             <img src="images/bird-13.jpg"
                  class="gallery-img"
-                 data-title="Scarlet Robin">
+                 data-title="Scarlet Robin"
+                 data-location="tasmania"
+                 data-place="Peter Murrell Conservation Area">
             <div class="bird-caption">Scarlet Robin</div>
 
           </div>
@@ -476,7 +540,9 @@
           <div class="photo-box">
             <img src="images/bird-14.jpg"
                  class="gallery-img"
-                 data-title="Yellow-tailed Black-Cockatoo">
+                 data-title="Yellow-tailed Black-Cockatoo"
+                 data-location="tasmania"
+                 data-place="Peter Murrell Conservation Area">
             <div class="bird-caption">Yellow-tailed Black-Cockatoo</div>
 
           </div>
@@ -487,7 +553,9 @@
           <div class="photo-box">
             <img src="images/bird-15.jpg"
                  class="gallery-img"
-                 data-title="Laughing Kookaburra">
+                 data-title="Laughing Kookaburra"
+                 data-location="tasmania"
+                 data-place="Peter Murrell Conservation Area">
             <div class="bird-caption">Laughing Kookaburra</div>
 
           </div>
@@ -498,7 +566,9 @@
           <div class="photo-box">
             <img src="images/bird-16.jpg"
                  class="gallery-img"
-                 data-title="Black-face Cuckooshrike">
+                 data-title="Black-face Cuckooshrike"
+                 data-location="tasmania"
+                 data-place="Peter Murrell Conservation Area">
             <div class="bird-caption">Black-face Cuckooshrike</div>
 
           </div>
@@ -509,7 +579,9 @@
           <div class="photo-box">
             <img src="images/bird-17.jpg"
                  class="gallery-img"
-                 data-title="Green Rosella">
+                 data-title="Green Rosella"
+                 data-location="tasmania"
+                 data-place="Pierson's Park">
             <div class="bird-caption">Green Rosella</div>
 
           </div>
@@ -520,7 +592,9 @@
           <div class="photo-box">
             <img src="images/bird-18.jpg"
                  class="gallery-img"
-                 data-title="Wedge-tailed Eagle">
+                 data-title="Wedge-tailed Eagle"
+                 data-location="tasmania"
+                 data-place="Pierson's Park">
             <div class="bird-caption">Wedge-tailed Eagle</div>
 
           </div>
@@ -531,7 +605,9 @@
           <div class="photo-box">
             <img src="images/bird-19.jpg"
                  class="gallery-img"
-                 data-title="Wedge-tailed Eagle">
+                 data-title="Wedge-tailed Eagle"
+                 data-location="tasmania"
+                 data-place="Pierson's Park">
             <div class="bird-caption">Wedge-tailed Eagle</div>
 
           </div>
@@ -542,7 +618,9 @@
           <div class="photo-box">
             <img src="images/bird-20.jpg"
                  class="gallery-img"
-                 data-title="Superb Fairywren">
+                 data-title="Superb Fairywren"
+                 data-location="tasmania"
+                 data-place="Pierson's Park">
             <div class="bird-caption">Superb Fairywren</div>
 
           </div>
@@ -553,7 +631,9 @@
           <div class="photo-box">
             <img src="images/bird-21.jpg"
                  class="gallery-img"
-                 data-title="Striated Pardalote">
+                 data-title="Striated Pardalote"
+                 data-location="tasmania"
+                 data-place="Pierson's Park">
             <div class="bird-caption">Striated Pardalote</div>
 
           </div>
@@ -564,7 +644,9 @@
           <div class="photo-box">
             <img src="images/bird-22.jpg"
                  class="gallery-img"
-                 data-title="Striated Pardalote">
+                 data-title="Striated Pardalote"
+                 data-location="tasmania"
+                 data-place="Pierson's Park">
             <div class="bird-caption">Striated Pardalote</div>
 
           </div>
@@ -575,7 +657,9 @@
           <div class="photo-box">
             <img src="images/bird-23.jpg"
                  class="gallery-img"
-                 data-title="House Sparrow">
+                 data-title="House Sparrow"
+                 data-location="tasmania"
+                 data-place="Louisa Hinsby Park">
             <div class="bird-caption">House Sparrow</div>
 
           </div>
@@ -586,7 +670,9 @@
           <div class="photo-box">
             <img src="images/bird-24.jpg"
                  class="gallery-img"
-                 data-title="Kelp Gull">
+                 data-title="Kelp Gull"
+                 data-location="tasmania"
+                 data-place="Hinsby Beach">
             <div class="bird-caption">Kelp Gull</div>
 
           </div>
@@ -597,7 +683,9 @@
           <div class="photo-box">
             <img src="images/bird-25.jpg"
                  class="gallery-img"
-                 data-title="Araucana hen">
+                 data-title="Araucana hen"
+                 data-location="tasmania"
+                 data-place="Louisa Hinsby Park">
             <div class="bird-caption">Araucana hen</div>
 
           </div>
@@ -608,7 +696,9 @@
           <div class="photo-box">
             <img src="images/bird-26.jpg"
                  class="gallery-img"
-                 data-title="Sulphur-crested Cockatoo">
+                 data-title="Sulphur-crested Cockatoo"
+                 data-location="tasmania"
+                 data-place="Louisa Hinsby Park">
             <div class="bird-caption">Sulphur-crested Cockatoo</div>
 
           </div>
@@ -619,7 +709,9 @@
           <div class="photo-box">
             <img src="images/bird-27.jpg"
                  class="gallery-img"
-                 data-title="Masked Lapwing">
+                 data-title="Masked Lapwing"
+                 data-location="tasmania"
+                 data-place="Hinsby Beach">
             <div class="bird-caption">Masked Lapwing</div>
 
           </div>
@@ -630,7 +722,9 @@
           <div class="photo-box">
             <img src="images/bird-28.jpg"
                  class="gallery-img"
-                 data-title="White-faced Heron">
+                 data-title="White-faced Heron"
+                 data-location="tasmania"
+                 data-place="Hinsby Beach">
             <div class="bird-caption">White-faced Heron</div>
 
           </div>
@@ -641,7 +735,9 @@
           <div class="photo-box">
             <img src="images/people-1.jpg"
                  class="gallery-img"
-                 data-title="Cuties">
+                 data-title="Cuties"
+                 data-location="tasmania"
+                 data-place="Hinsby Beach">
             <div class="bird-caption">Cuties</div>
 
           </div>
@@ -653,7 +749,9 @@
           <div class="photo-box">
             <img src="images/bird-29.jpg"
                  class="gallery-img"
-                 data-title="Tawny Frogmouth">
+                 data-title="Tawny Frogmouth"
+                 data-location="victoria"
+                 data-place="Hull Reserve">
             <div class="bird-caption">Tawny Frogmouth</div>
 
           </div>
@@ -664,7 +762,9 @@
           <div class="photo-box">
             <img src="images/bird-30.jpg"
                  class="gallery-img"
-                 data-title="Australian Magpie">
+                 data-title="Australian Magpie"
+                 data-location="victoria"
+                 data-place="Hull Reserve">
             <div class="bird-caption">Australian Magpie</div>
 
           </div>
@@ -716,7 +816,7 @@
     });
 
     
-    // -------- DARK MODE (keep your existing code here) --------
+    // -------- DARK MODE  --------
     function toggleTheme() {
         const body = document.body;
         body.classList.toggle("dark-mode");
@@ -743,6 +843,17 @@
     const totalCountEl = document.getElementById('totalCount');
     totalCountEl.textContent = cols.length;
 
+    // Filter UI elements
+    const filterToggleBtn    = document.getElementById('filterToggleBtn');
+    const filterPanel        = document.getElementById('filterPanel');
+    const locationCheckboxes = Array.from(document.querySelectorAll('.location-checkbox'));
+
+    // Toggle filter panel with fade animation
+    filterToggleBtn.addEventListener('click', () => {
+      filterPanel.classList.toggle('open');
+    });
+
+
 
     function updateVisibleCount() {
       const visible = cols.filter(col => col.style.display !== 'none').length;
@@ -752,16 +863,44 @@
     function filterBirds() {
       const q = (searchInput.value || '').toLowerCase().trim();
 
+      // Get selected locations (tasmania, victoria, etc.)
+      const activeLocations = locationCheckboxes
+        .filter(cb => cb.checked)
+        .map(cb => cb.value); // e.g. ["tasmania", "victoria"]
+
       cols.forEach(col => {
         const captionEl = col.querySelector('.bird-caption');
         const name = captionEl ? captionEl.textContent.toLowerCase() : '';
-        col.style.display = name.includes(q) ? '' : 'none';
+
+        const imgEl = col.querySelector('.gallery-img');
+
+        // data-location may be "tasmania", "victoria", or "tasmania,victoria"
+        const locAttr = (imgEl?.dataset.location || '').toLowerCase();
+        const imgLocations = locAttr.split(',').map(x => x.trim()).filter(Boolean);
+
+        const matchesText = name.includes(q);
+
+        // If no location is selected → ignore location filter (show all that match text)
+        let matchesLocation = true;
+        if (activeLocations.length > 0) {
+          // Bird matches if ANY of its locations is in the selected list
+          matchesLocation = imgLocations.some(l => activeLocations.includes(l));
+        }
+
+        col.style.display = (matchesText && matchesLocation) ? '' : 'none';
       });
 
       updateVisibleCount();
     }
 
+
     searchInput.addEventListener('input', filterBirds);
+
+    // Re-filter when a location is (un)checked
+    locationCheckboxes.forEach(cb => {
+      cb.addEventListener('change', filterBirds);
+    });
+
 
     function clearHighlights() {
       document.querySelectorAll('.highlight-bird').forEach(el => {
