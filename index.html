@@ -73,6 +73,17 @@
       opacity: 1;
     }
 
+    /* bottom-right attribution for audio credit */
+    #lightboxAttribution {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      color: #ffffff;
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+
     /* Filter panel: hidden by default, fades in when opened */
     #filterPanel {
       opacity: 0;
@@ -323,7 +334,9 @@
   <div id="lightboxOverlay">
     <img id="lightboxImage" src="" alt="">
     <div id="lightboxCaption"></div>
+    <div id="lightboxAttribution"></div>
   </div>
+
 
   <div class="background-blobs">
     <div class="blob blob1"></div>
@@ -428,6 +441,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
+
+    let currentAudio = null;
+
     // -------- DARK MODE  --------
     function toggleTheme() {
       const body = document.body;
@@ -454,28 +470,32 @@
     };
 
     function initGalleryPage(birds) {
-      // 1) Render gallery from JSON
       const galleryRow = document.getElementById('galleryRow');
-      galleryRow.innerHTML = birds.map(bird => `
-      <div class="col">
-        <div class="photo-box">
-          <img src="${bird.src}"
-               class="gallery-img"
-               data-title="${bird.title}"
-               data-location="${bird.region}"
-               data-place="${bird.place}">
-          <div class="bird-caption">${bird.title}</div>
-        </div>
-      </div>
-    `).join('');
 
-      // 2) Set total count
+      galleryRow.innerHTML = birds.map(bird => {
+        const audio = bird.audio || {};
+        const audioSrc = audio.src || "";
+        const audioCredit = audio.credit || "";
+
+        return `
+          <div class="col">
+            <div class="photo-box">
+              <img src="${bird.src}"
+                  class="gallery-img"
+                  data-title="${bird.title}"
+                  data-location="${bird.region}"
+                  data-place="${bird.place}"
+                  data-audio="${audioSrc}"
+                  data-audio-credit="${audioCredit}">
+              <div class="bird-caption">${bird.title}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
       const totalCountEl = document.getElementById('totalCount');
-      if (totalCountEl) {
-        totalCountEl.textContent = birds.length;
-      }
+      if (totalCountEl) totalCountEl.textContent = birds.length;
 
-      // 3) Now wire up lightbox, search, filter, random, scroll-to-top
       setupLightbox();
       setupSearchFilterRandom();
       setupScrollTop();
@@ -487,16 +507,44 @@
       const overlay = document.getElementById('lightboxOverlay');
       const overlayImg = document.getElementById('lightboxImage');
       const overlayCaption = document.getElementById('lightboxCaption');
+      const overlayAttrib = document.getElementById('lightboxAttribution');
 
       function openLightbox(imgEl) {
+        // image + title
         overlayImg.src = imgEl.getAttribute('src');
         overlayCaption.textContent = imgEl.dataset.title || '';
         overlay.classList.add('show');
+
+        // stop any previous audio
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio = null;
+        }
+
+        // audio + attribution
+        const audioSrc = imgEl.dataset.audio;
+        const audioCredit = imgEl.dataset.audioCredit || '';
+
+        overlayAttrib.textContent = audioCredit;
+
+        if (audioSrc) {
+          currentAudio = new Audio(audioSrc);
+          currentAudio.play().catch(err => {
+            console.warn('Audio autoplay was blocked:', err);
+          });
+        }
       }
 
       function closeLightbox() {
         overlay.classList.remove('show');
         overlayImg.src = '';
+        overlayCaption.textContent = '';
+        overlayAttrib.textContent = '';
+
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio = null;
+        }
       }
 
       thumbs.forEach(img => {
@@ -511,6 +559,7 @@
         }
       });
     }
+
 
     // -------- SEARCH / FILTER + RANDOM BIRD --------
     function setupSearchFilterRandom() {
