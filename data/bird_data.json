@@ -380,5 +380,123 @@
             "license": "CC BY-NC-SA 4.0",
             "sourceUrl": "https://xeno-canto.org/597149"
         }
+    },
+    {
+        "id": 32,
+        "src": "images/bird-31.jpg",
+        "title": "Pacific Black Duck",
+        "region": "victoria",
+        "place": "Birrarung Marr",
+        "audio": {
+            "src": "audio/pacific_black_duck.mp3",
+            "credit": "Bird call/flight call © Marc Anderson, XC611320, xeno-canto.org",
+            "license": "CC BY-NC-SA 4.0",
+            "sourceUrl": "https://xeno-canto.org/611320"
+        } 
+    },
+    {
+        "id": 33,
+        "src": "images/bird-32.jpg",
+        "title": "Little Pied Cormorant",
+        "region": "victoria",
+        "place": "Birrarung Marr",
+        "audio": {
+            "src": "audio/little_pied_cormorant.mp3",
+            "credit": "Bird begging, call, traffic © Nick Talbot, XC794988, xeno-canto.org",
+            "license": "CC BY-NC-SA 4.0",
+            "sourceUrl": "https://xeno-canto.org/794988"
+        }
+    },
+    {
+        "id": 34,
+        "src": "images/bird-33.jpg",
+        "title": "Common Myna",
+        "region": "victoria",
+        "place": "Birrarung Marr",
+        "audio": {
+            "src": "audio/common_myna.mp3",
+            "credit": "Song © James Lambert, XC773060, xeno-canto.org",
+            "license": "CC BY-NC-SA 4.0",
+            "sourceUrl": "https://xeno-canto.org/773060"
+        }
+    },
+    {
+        "id": 35,
+        "src": "images/bird-34.jpg",
+        "title": "Rock Dove",
+        "region": "victoria",
+        "place": "Evan Walker Bridge",
+        "audio": {
+            "src": "audio/rock_dove.mp3",
+            "credit": "Call © Marie-Lan Taÿ Pamart, XC541143, xeno-canto.org",
+            "license": "CC BY-NC-SA 4.0",
+            "sourceUrl": "https://xeno-canto.org/541143"
+        }
+    },
+    {
+        "id": 36,
+        "src": "images/bird-35.jpg",
+        "title": "Magpie-lark",
+        "region": "victoria",
+        "place": "National Gallery of Victoria",
+        "audio": {
+            "src": "audio/magpie_lark.mp3",
+            "credit": "Call © Marc Anderson, XC1001931, xeno-canto.org",
+            "license": "CC BY-NC-SA 4.0",
+            "sourceUrl": "https://xeno-canto.org/1001931"
+        }
+    },
+    {
+        "id": 37,
+        "src": "images/bird-36.jpg",
+        "title": "Australian Wood Duck",
+        "region": "victoria",
+        "place": "Princes Lawn",
+        "audio": {
+            "src": "audio/australian_wood_duck.mp3",
+            "credit": "Call © Marc Anderson, XC695198, xeno-canto.org",
+            "license": "CC BY-NC-SA 4.0",
+            "sourceUrl": "https://xeno-canto.org/695198"
+        }
+    },
+    {
+        "id": 38,
+        "src": "images/bird-37.jpg",
+        "title": "Australasian Swamphen",
+        "region": "victoria",
+        "place": "Princes Lawn",
+        "audio": {
+            "src": "audio/australasian_swamphen.mp3",
+            "credit": "Call © Marc Anderson, XC816781, xeno-canto.org",
+            "license": "CC BY-NC-SA 4.0",
+            "sourceUrl": "https://xeno-canto.org/816781"
+        }
+    },
+    {
+        "id": 39,
+        "src": "images/bird-38.jpg",
+        "title": "Dusky Moorhen",
+        "region": "victoria",
+        "place": "Princes Lawn",
+        "audio": {
+            "src": "audio/dusky_moorhen.mp3",
+            "credit": "Call © Marc Anderson, XC1044982, xeno-canto.org",
+            "license": "CC BY-NC-SA 4.0",
+            "sourceUrl": "https://xeno-canto.org/1044982"
+        }
+    },
+    {
+        "id": 40,
+        "src": "images/bird-39.jpg",
+        "title": "Australian Magpie (Juvenile)",
+        "region": "victoria",
+        "place": "Princes Lawn",
+        "audio": {
+            "src": "audio/austalian_magpie.mp3",
+            "credit": "Bird song © Marc Anderson, XC597149, xeno-canto.org",
+            "license": "CC BY-NC-SA 4.0",
+            "sourceUrl": "https://xeno-canto.org/597149"
+        }
     }
+
 ]
