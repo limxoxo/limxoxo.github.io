@@ -1,502 +1,538 @@
-
-
 [
-    {
-        "id": 1,
-        "src": "images/bird-1.jpg",
-        "title": "New Holland Honeyeater",
-        "region": "tasmania",
-        "place": "Louisa Hinsby Park",
-        "audio": {
-            "src": "audio/new-holland-honeyeater.mp3",
-            "credit": "Bird call © Marc Anderson, XC380193, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/380193"
-        }
+  {
+    "id": 1,
+    "title": "New Holland Honeyeater",
+    "region": "tasmania",
+    "place": "Louisa Hinsby Park",
+    "audio": {
+      "src": "audio/new-holland-honeyeater.mp3",
+      "credit": "Bird call © Marc Anderson, XC380193, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/380193"
     },
-    {
-        "id": 2,
-        "src": "images/bird-2.jpg",
-        "title": "New Holland Honeyeater",
-        "region": "tasmania",
-        "place": "Louisa Hinsby Park",
-        "audio": {
-            "src": "audio/new-holland-honeyeater.mp3",
-            "credit": "Bird call © Marc Anderson, XC380193, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/380193"
-        }
+    "thumbAvif": "images/thumbs/bird-1.avif",
+    "largeAvif": "images/large/bird-1.avif"
+  },
+  {
+    "id": 2,
+    "title": "New Holland Honeyeater",
+    "region": "tasmania",
+    "place": "Louisa Hinsby Park",
+    "audio": {
+      "src": "audio/new-holland-honeyeater.mp3",
+      "credit": "Bird call © Marc Anderson, XC380193, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/380193"
     },
-    {
-        "id": 3,
-        "src": "images/bird-3.jpg",
-        "title": "Common Blackbird",
-        "region": "tasmania",
-        "place": "Louisa Hinsby Park",
-            "audio": {
-            "src": "audio/common_blackbird.mp3",
-            "credit": "Bird song © Patrik Åberg, XC98184, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/981843"
-        }
+    "thumbAvif": "images/thumbs/bird-2.avif",
+    "largeAvif": "images/large/bird-2.avif"
+  },
+  {
+    "id": 3,
+    "title": "Common Blackbird",
+    "region": "tasmania",
+    "place": "Louisa Hinsby Park",
+    "audio": {
+      "src": "audio/common_blackbird.mp3",
+      "credit": "Bird song © Patrik Åberg, XC98184, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/981843"
     },
-    {
-        "id": 4,
-        "src": "images/bird-4.jpg",
-        "title": "Little Pied Cormorant",
-        "region": "tasmania",
-        "place": "Hinsby Beach",
-        "audio": {
-            "src": "audio/little_pied_cormorant.mp3",
-            "credit": "Bird begging, call, traffic © Nick Talbot, XC794988, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/794988"
-        }
+    "thumbAvif": "images/thumbs/bird-3.avif",
+    "largeAvif": "images/large/bird-3.avif"
+  },
+  {
+    "id": 4,
+    "title": "Little Pied Cormorant",
+    "region": "tasmania",
+    "place": "Hinsby Beach",
+    "audio": {
+      "src": "audio/little_pied_cormorant.mp3",
+      "credit": "Bird begging, call, traffic © Nick Talbot, XC794988, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/794988"
     },
-    {
-        "id": 5,
-        "src": "images/bird-5.jpg",
-        "title": "Little Pied Cormorant",
-        "region": "tasmania",
-        "place": "Hinsby Beach",
-        "audio": {
-            "src": "audio/little_pied_cormorant.mp3",
-            "credit": "Bird begging, call, traffic © Nick Talbot, XC794988, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/794988"
-        }
+    "thumbAvif": "images/thumbs/bird-4.avif",
+    "largeAvif": "images/large/bird-4.avif"
+  },
+  {
+    "id": 5,
+    "title": "Little Pied Cormorant",
+    "region": "tasmania",
+    "place": "Hinsby Beach",
+    "audio": {
+      "src": "audio/little_pied_cormorant.mp3",
+      "credit": "Bird begging, call, traffic © Nick Talbot, XC794988, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/794988"
     },
-    {
-        "id": 6,
-        "src": "images/bird-6.jpg",
-        "title": "House Sparrow",
-        "region": "tasmania",
-        "place": "Louisa Hinsby Park",
-        "audio": {
-            "src": "audio/house_sparrow.mp3",
-            "credit": "Bird call © Ramit Singal, XC501121, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/501121"
-        }
-
+    "thumbAvif": "images/thumbs/bird-5.avif",
+    "largeAvif": "images/large/bird-5.avif"
+  },
+  {
+    "id": 6,
+    "title": "House Sparrow",
+    "region": "tasmania",
+    "place": "Louisa Hinsby Park",
+    "audio": {
+      "src": "audio/house_sparrow.mp3",
+      "credit": "Bird call © Ramit Singal, XC501121, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/501121"
     },
-    {
-        "id": 7,
-        "src": "images/bird-7.jpg",
-        "title": "Australian Pied Oystercatcher",
-        "region": "tasmania",
-        "place": "Hinsby Beach",
-        "audio": {
-            "src": "audio/australian_pied_oystercatcher.mp3",
-            "credit": "Bird call © Marc Anderson, XC608804, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/608804"
-        }
+    "thumbAvif": "images/thumbs/bird-6.avif",
+    "largeAvif": "images/large/bird-6.avif"
+  },
+  {
+    "id": 7,
+    "title": "Australian Pied Oystercatcher",
+    "region": "tasmania",
+    "place": "Hinsby Beach",
+    "audio": {
+      "src": "audio/australian_pied_oystercatcher.mp3",
+      "credit": "Bird call © Marc Anderson, XC608804, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/608804"
     },
-    {
-        "id": 8,
-        "src": "images/bird-8.jpg",
-        "title": "Tasmanian Nativehen",
-        "region": "tasmania",
-        "place": "Rotary Centennial Park",
-        "audio": {
-            "src": "audio/tasmanian_nativehen.mp3",
-            "credit": "Bird song © Peter Boesman, XC860245, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/860245"
-        }   
+    "thumbAvif": "images/thumbs/bird-7.avif",
+    "largeAvif": "images/large/bird-7.avif"
+  },
+  {
+    "id": 8,
+    "title": "Tasmanian Nativehen",
+    "region": "tasmania",
+    "place": "Rotary Centennial Park",
+    "audio": {
+      "src": "audio/tasmanian_nativehen.mp3",
+      "credit": "Bird song © Peter Boesman, XC860245, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/860245"
     },
-    {
-        "id": 9,
-        "src": "images/bird-9.jpg",
-        "title": "Eastern Rosella",
-        "region": "tasmania",
-        "place": "Rotary Centennial Park",
-        "audio": {
-            "src": "audio/eastern_rosella.mp3",
-            "credit": "Bird call/song © Marc Anderson, XC695238, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/695238"
-        }  
+    "thumbAvif": "images/thumbs/bird-8.avif",
+    "largeAvif": "images/large/bird-8.avif"
+  },
+  {
+    "id": 9,
+    "title": "Eastern Rosella",
+    "region": "tasmania",
+    "place": "Rotary Centennial Park",
+    "audio": {
+      "src": "audio/eastern_rosella.mp3",
+      "credit": "Bird call/song © Marc Anderson, XC695238, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/695238"
     },
-    {
-        "id": 10,
-        "src": "images/bird-10.jpg",
-        "title": "Pacific Black Duck",
-        "region": "tasmania",
-        "place": "Rotary Centennial Park",
-        "audio": {
-            "src": "audio/pacific_black_duck.mp3",
-            "credit": "Bird call/flight call © Marc Anderson, XC611320, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/611320"
-        }  
+    "thumbAvif": "images/thumbs/bird-9.avif",
+    "largeAvif": "images/large/bird-9.avif"
+  },
+  {
+    "id": 10,
+    "title": "Pacific Black Duck",
+    "region": "tasmania",
+    "place": "Rotary Centennial Park",
+    "audio": {
+      "src": "audio/pacific_black_duck.mp3",
+      "credit": "Bird call/flight call © Marc Anderson, XC611320, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/611320"
     },
-    {
-        "id": 11,
-        "src": "images/bird-11.jpg",
-        "title": "Dusky Robin",
-        "region": "tasmania",
-        "place": "Peter Murrell Conservation Area",
-        "audio": {
-            "src": "audio/dusky_robin.mp3",
-            "credit": "Bird call © Ramit Singal, XC496494, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/496494"
-        }  
+    "thumbAvif": "images/thumbs/bird-10.avif",
+    "largeAvif": "images/large/bird-10.avif"
+  },
+  {
+    "id": 11,
+    "title": "Dusky Robin",
+    "region": "tasmania",
+    "place": "Peter Murrell Conservation Area",
+    "audio": {
+      "src": "audio/dusky_robin.mp3",
+      "credit": "Bird call © Ramit Singal, XC496494, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/496494"
     },
-    {
-        "id": 12,
-        "src": "images/bird-12.jpg",
-        "title": "Brush Bronzewing",
-        "region": "tasmania",
-        "place": "Peter Murrell Conservation Area",
-        "audio": {
-            "src": "audio/brush_bronzewing.mp3",
-            "credit": "Bird song © Iain Woxvold, XC603329, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/603329"
-        }  
+    "thumbAvif": "images/thumbs/bird-11.avif",
+    "largeAvif": "images/large/bird-11.avif"
+  },
+  {
+    "id": 12,
+    "title": "Brush Bronzewing",
+    "region": "tasmania",
+    "place": "Peter Murrell Conservation Area",
+    "audio": {
+      "src": "audio/brush_bronzewing.mp3",
+      "credit": "Bird song © Iain Woxvold, XC603329, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/603329"
     },
-    {
-        "id": 13,
-        "src": "images/bird-13.jpg",
-        "title": "Scarlet Robin",
-        "region": "tasmania",
-        "place": "Peter Murrell Conservation Area",
-        "audio": {
-            "src": "audio/scarlet_robin.mp3",
-            "credit": "Bird song © Peter Boesman, XC860035, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/860035"
-        }  
+    "thumbAvif": "images/thumbs/bird-12.avif",
+    "largeAvif": "images/large/bird-12.avif"
+  },
+  {
+    "id": 13,
+    "title": "Scarlet Robin",
+    "region": "tasmania",
+    "place": "Peter Murrell Conservation Area",
+    "audio": {
+      "src": "audio/scarlet_robin.mp3",
+      "credit": "Bird song © Peter Boesman, XC860035, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/860035"
     },
-    {
-        "id": 14,
-        "src": "images/bird-14.jpg",
-        "title": "Yellow-tailed Black-Cockatoo",
-        "region": "tasmania",
-        "place": "Peter Murrell Conservation Area",
-        "audio": {
-            "src": "audio/yellow_tailed_black_cockatoo.mp3",
-            "credit": "Bird song © Marc Anderson, XC1031593, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/1031593"
-        }  
+    "thumbAvif": "images/thumbs/bird-13.avif",
+    "largeAvif": "images/large/bird-13.avif"
+  },
+  {
+    "id": 14,
+    "title": "Yellow-tailed Black-Cockatoo",
+    "region": "tasmania",
+    "place": "Peter Murrell Conservation Area",
+    "audio": {
+      "src": "audio/yellow_tailed_black_cockatoo.mp3",
+      "credit": "Bird song © Marc Anderson, XC1031593, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/1031593"
     },
-    {
-        "id": 15,
-        "src": "images/bird-15.jpg",
-        "title": "Laughing Kookaburra",
-        "region": "tasmania",
-        "place": "Peter Murrell Conservation Area",
-        "audio": {
-            "src": "audio/laughing_kookaburra.mp3",
-            "credit": "Bird song © Marc Anderson, XC460786, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/460786"
-        }  
+    "thumbAvif": "images/thumbs/bird-14.avif",
+    "largeAvif": "images/large/bird-14.avif"
+  },
+  {
+    "id": 15,
+    "title": "Laughing Kookaburra",
+    "region": "tasmania",
+    "place": "Peter Murrell Conservation Area",
+    "audio": {
+      "src": "audio/laughing_kookaburra.mp3",
+      "credit": "Bird song © Marc Anderson, XC460786, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/460786"
     },
-    {
-        "id": 16,
-        "src": "images/bird-16.jpg",
-        "title": "Black-faced Cuckooshrike",
-        "region": "tasmania",
-        "place": "Peter Murrell Conservation Area",
-        "audio": {
-            "src": "audio/black_faced_cuckooshrike.mp3",
-            "credit": "Bird song © Marc Anderson, XC673860, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/673860"
-        } 
+    "thumbAvif": "images/thumbs/bird-15.avif",
+    "largeAvif": "images/large/bird-15.avif"
+  },
+  {
+    "id": 16,
+    "title": "Black-faced Cuckooshrike",
+    "region": "tasmania",
+    "place": "Peter Murrell Conservation Area",
+    "audio": {
+      "src": "audio/black_faced_cuckooshrike.mp3",
+      "credit": "Bird song © Marc Anderson, XC673860, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/673860"
     },
-    {
-        "id": 17,
-        "src": "images/bird-17.jpg",
-        "title": "Green Rosella",
-        "region": "tasmania",
-        "place": "Pierson's Park",
-        "audio": {
-            "src": "audio/green_rosella.mp3",
-            "credit": "Bird song © Marc Anderson, XC674046, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/674046"
-        } 
+    "thumbAvif": "images/thumbs/bird-16.avif",
+    "largeAvif": "images/large/bird-16.avif"
+  },
+  {
+    "id": 17,
+    "title": "Green Rosella",
+    "region": "tasmania",
+    "place": "Pierson's Park",
+    "audio": {
+      "src": "audio/green_rosella.mp3",
+      "credit": "Bird song © Marc Anderson, XC674046, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/674046"
     },
-    {
-        "id": 18,
-        "src": "images/bird-18.jpg",
-        "title": "Wedge-tailed Eagle",
-        "region": "tasmania",
-        "place": "Pierson's Park"
+    "thumbAvif": "images/thumbs/bird-17.avif",
+    "largeAvif": "images/large/bird-17.avif"
+  },
+  {
+    "id": 18,
+    "title": "Wedge-tailed Eagle",
+    "region": "tasmania",
+    "place": "Pierson's Park",
+    "thumbAvif": "images/thumbs/bird-18.avif",
+    "largeAvif": "images/large/bird-18.avif"
+  },
+  {
+    "id": 19,
+    "title": "Wedge-tailed Eagle",
+    "region": "tasmania",
+    "place": "Pierson's Park",
+    "thumbAvif": "images/thumbs/bird-19.avif",
+    "largeAvif": "images/large/bird-19.avif"
+  },
+  {
+    "id": 20,
+    "title": "Superb Fairywren",
+    "region": "tasmania",
+    "place": "Pierson's Park",
+    "audio": {
+      "src": "audio/superb_fairywren.mp3",
+      "credit": "Bird song © Marc Anderson, XC674014, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/674014"
     },
-    {
-        "id": 19,
-        "src": "images/bird-19.jpg",
-        "title": "Wedge-tailed Eagle",
-        "region": "tasmania",
-        "place": "Pierson's Park"
+    "thumbAvif": "images/thumbs/bird-20.avif",
+    "largeAvif": "images/large/bird-20.avif"
+  },
+  {
+    "id": 21,
+    "title": "Striated Pardalote",
+    "region": "tasmania",
+    "place": "Pierson's Park",
+    "audio": {
+      "src": "audio/striated_pardalote.mp3",
+      "credit": "Bird song © Marc Anderson, XC673837, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/673837"
     },
-    {
-        "id": 20,
-        "src": "images/bird-20.jpg",
-        "title": "Superb Fairywren",
-        "region": "tasmania",
-        "place": "Pierson's Park",
-        "audio": {
-            "src": "audio/superb_fairywren.mp3",
-            "credit": "Bird song © Marc Anderson, XC674014, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/674014"
-        } 
+    "thumbAvif": "images/thumbs/bird-21.avif",
+    "largeAvif": "images/large/bird-21.avif"
+  },
+  {
+    "id": 22,
+    "title": "Striated Pardalote",
+    "region": "tasmania",
+    "place": "Pierson's Park",
+    "audio": {
+      "src": "audio/striated_pardalote.mp3",
+      "credit": "Bird song © Marc Anderson, XC673837, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/673837"
     },
-    {
-        "id": 21,
-        "src": "images/bird-21.jpg",
-        "title": "Striated Pardalote",
-        "region": "tasmania",
-        "place": "Pierson's Park",
-        "audio": {
-            "src": "audio/striated_pardalote.mp3",
-            "credit": "Bird song © Marc Anderson, XC673837, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/673837"
-        } 
+    "thumbAvif": "images/thumbs/bird-22.avif",
+    "largeAvif": "images/large/bird-22.avif"
+  },
+  {
+    "id": 23,
+    "title": "House Sparrow",
+    "region": "tasmania",
+    "place": "Louisa Hinsby Park",
+    "audio": {
+      "src": "audio/house_sparrow.mp3",
+      "credit": "Bird call © Ramit Singal, XC501121, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/501121"
     },
-    {
-        "id": 22,
-        "src": "images/bird-22.jpg",
-        "title": "Striated Pardalote",
-        "region": "tasmania",
-        "place": "Pierson's Park",
-        "audio": {
-            "src": "audio/striated_pardalote.mp3",
-            "credit": "Bird song © Marc Anderson, XC673837, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/673837"
-        } 
+    "thumbAvif": "images/thumbs/bird-23.avif",
+    "largeAvif": "images/large/bird-23.avif"
+  },
+  {
+    "id": 24,
+    "title": "Kelp Gull",
+    "region": "tasmania",
+    "place": "Hinsby Beach",
+    "audio": {
+      "src": "audio/kelp_gull.mp3",
+      "credit": "Bird call © Marc Anderson, XC204394, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/204394"
     },
-    {
-        "id": 23,
-        "src": "images/bird-23.jpg",
-        "title": "House Sparrow",
-        "region": "tasmania",
-        "place": "Louisa Hinsby Park",
-        "audio": {
-            "src": "audio/house_sparrow.mp3",
-            "credit": "Bird call © Ramit Singal, XC501121, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/501121"
-        }
+    "thumbAvif": "images/thumbs/bird-24.avif",
+    "largeAvif": "images/large/bird-24.avif"
+  },
+  {
+    "id": 25,
+    "title": "Araucana hen",
+    "region": "tasmania",
+    "place": "Louisa Hinsby Park",
+    "thumbAvif": "images/thumbs/bird-25.avif",
+    "largeAvif": "images/large/bird-25.avif"
+  },
+  {
+    "id": 26,
+    "title": "Sulphur-crested Cockatoo",
+    "region": "tasmania",
+    "place": "Louisa Hinsby Park",
+    "audio": {
+      "src": "audio/sulphur_crested_cockatoo.mp3",
+      "credit": "Bird call © Marc Anderson, XC1045839, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/1045839"
     },
-    {
-        "id": 24,
-        "src": "images/bird-24.jpg",
-        "title": "Kelp Gull",
-        "region": "tasmania",
-        "place": "Hinsby Beach",
-            "audio": {
-            "src": "audio/kelp_gull.mp3",
-            "credit": "Bird call © Marc Anderson, XC204394, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/204394"
-        }
+    "thumbAvif": "images/thumbs/bird-26.avif",
+    "largeAvif": "images/large/bird-26.avif"
+  },
+  {
+    "id": 27,
+    "title": "Masked Lapwing",
+    "region": "tasmania",
+    "place": "Hinsby Beach",
+    "audio": {
+      "src": "audio/masked_lapwing.mp3",
+      "credit": "Bird call © Marc Anderson, XC816299, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/816299"
     },
-    {
-        "id": 25,
-        "src": "images/bird-25.jpg",
-        "title": "Araucana hen",
-        "region": "tasmania",
-        "place": "Louisa Hinsby Park"
+    "thumbAvif": "images/thumbs/bird-27.avif",
+    "largeAvif": "images/large/bird-27.avif"
+  },
+  {
+    "id": 28,
+    "title": "White-faced Heron",
+    "region": "tasmania",
+    "place": "Hinsby Beach",
+    "audio": {
+      "src": "audio/white_faced_heron.mp3",
+      "credit": "Bird call © Marc Anderson, XC816108, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/816108"
     },
-    {
-        "id": 26,
-        "src": "images/bird-26.jpg",
-        "title": "Sulphur-crested Cockatoo",
-        "region": "tasmania",
-        "place": "Louisa Hinsby Park",
-        "audio": {
-            "src": "audio/sulphur_crested_cockatoo.mp3",
-            "credit": "Bird call © Marc Anderson, XC1045839, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/1045839"
-        }
+    "thumbAvif": "images/thumbs/bird-28.avif",
+    "largeAvif": "images/large/bird-28.avif"
+  },
+  {
+    "id": 29,
+    "title": "Cuties",
+    "region": "tasmania",
+    "place": "Hinsby Beach",
+    "thumbAvif": "images/thumbs/people-1.avif",
+    "largeAvif": "images/large/people-1.avif"
+  },
+  {
+    "id": 30,
+    "title": "Tawny Frogmouth",
+    "region": "victoria",
+    "place": "Hall Reserve",
+    "audio": {
+      "src": "audio/tawny_frogmouth.mp3",
+      "credit": "Bird song © Marc Anderson, XC1048188, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/1048188"
     },
-    {
-        "id": 27,
-        "src": "images/bird-27.jpg",
-        "title": "Masked Lapwing",
-        "region": "tasmania",
-        "place": "Hinsby Beach",
-        "audio": {
-            "src": "audio/masked_lapwing.mp3",
-            "credit": "Bird call © Marc Anderson, XC816299, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/816299"
-        }
+    "thumbAvif": "images/thumbs/bird-29.avif",
+    "largeAvif": "images/large/bird-29.avif"
+  },
+  {
+    "id": 31,
+    "title": "Australian Magpie",
+    "region": "victoria",
+    "place": "Hall Reserve",
+    "audio": {
+      "src": "audio/austalian_magpie.mp3",
+      "credit": "Bird song © Marc Anderson, XC597149, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/597149"
     },
-    {
-        "id": 28,
-        "src": "images/bird-28.jpg",
-        "title": "White-faced Heron",
-        "region": "tasmania",
-        "place": "Hinsby Beach",
-        "audio": {
-            "src": "audio/white_faced_heron.mp3",
-            "credit": "Bird call © Marc Anderson, XC816108, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/816108"
-        }
+    "thumbAvif": "images/thumbs/bird-30.avif",
+    "largeAvif": "images/large/bird-30.avif"
+  },
+  {
+    "id": 32,
+    "title": "Pacific Black Duck",
+    "region": "victoria",
+    "place": "Birrarung Marr",
+    "audio": {
+      "src": "audio/pacific_black_duck.mp3",
+      "credit": "Bird call/flight call © Marc Anderson, XC611320, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/611320"
     },
-    {
-        "id": 29,
-        "src": "images/people-1.jpg",
-        "title": "Cuties",
-        "region": "tasmania",
-        "place": "Hinsby Beach"
+    "thumbAvif": "images/thumbs/bird-31.avif",
+    "largeAvif": "images/large/bird-31.avif"
+  },
+  {
+    "id": 33,
+    "title": "Little Pied Cormorant",
+    "region": "victoria",
+    "place": "Birrarung Marr",
+    "audio": {
+      "src": "audio/little_pied_cormorant.mp3",
+      "credit": "Bird begging, call, traffic © Nick Talbot, XC794988, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/794988"
     },
-    {
-        "id": 30,
-        "src": "images/bird-29.jpg",
-        "title": "Tawny Frogmouth",
-        "region": "victoria",
-        "place": "Hall Reserve",
-        "audio": {
-            "src": "audio/tawny_frogmouth.mp3",
-            "credit": "Bird song © Marc Anderson, XC1048188, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/1048188"
-        }
+    "thumbAvif": "images/thumbs/bird-32.avif",
+    "largeAvif": "images/large/bird-32.avif"
+  },
+  {
+    "id": 34,
+    "title": "Common Myna",
+    "region": "victoria",
+    "place": "Birrarung Marr",
+    "audio": {
+      "src": "audio/common_myna.mp3",
+      "credit": "Song © James Lambert, XC773060, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/773060"
     },
-    {
-        "id": 31,
-        "src": "images/bird-30.jpg",
-        "title": "Australian Magpie",
-        "region": "victoria",
-        "place": "Hall Reserve",
-        "audio": {
-            "src": "audio/austalian_magpie.mp3",
-            "credit": "Bird song © Marc Anderson, XC597149, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/597149"
-        }
+    "thumbAvif": "images/thumbs/bird-33.avif",
+    "largeAvif": "images/large/bird-33.avif"
+  },
+  {
+    "id": 35,
+    "title": "Rock Dove",
+    "region": "victoria",
+    "place": "Evan Walker Bridge",
+    "audio": {
+      "src": "audio/rock_dove.mp3",
+      "credit": "Call © Marie-Lan Taÿ Pamart, XC541143, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/541143"
     },
-    {
-        "id": 32,
-        "src": "images/bird-31.jpg",
-        "title": "Pacific Black Duck",
-        "region": "victoria",
-        "place": "Birrarung Marr",
-        "audio": {
-            "src": "audio/pacific_black_duck.mp3",
-            "credit": "Bird call/flight call © Marc Anderson, XC611320, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/611320"
-        } 
+    "thumbAvif": "images/thumbs/bird-34.avif",
+    "largeAvif": "images/large/bird-34.avif"
+  },
+  {
+    "id": 36,
+    "title": "Magpie-lark",
+    "region": "victoria",
+    "place": "National Gallery of Victoria",
+    "audio": {
+      "src": "audio/magpie_lark.mp3",
+      "credit": "Call © Marc Anderson, XC1001931, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/1001931"
     },
-    {
-        "id": 33,
-        "src": "images/bird-32.jpg",
-        "title": "Little Pied Cormorant",
-        "region": "victoria",
-        "place": "Birrarung Marr",
-        "audio": {
-            "src": "audio/little_pied_cormorant.mp3",
-            "credit": "Bird begging, call, traffic © Nick Talbot, XC794988, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/794988"
-        }
+    "thumbAvif": "images/thumbs/bird-35.avif",
+    "largeAvif": "images/large/bird-35.avif"
+  },
+  {
+    "id": 37,
+    "title": "Australian Wood Duck",
+    "region": "victoria",
+    "place": "Princes Lawn",
+    "audio": {
+      "src": "audio/australian_wood_duck.mp3",
+      "credit": "Call © Marc Anderson, XC695198, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/695198"
     },
-    {
-        "id": 34,
-        "src": "images/bird-33.jpg",
-        "title": "Common Myna",
-        "region": "victoria",
-        "place": "Birrarung Marr",
-        "audio": {
-            "src": "audio/common_myna.mp3",
-            "credit": "Song © James Lambert, XC773060, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/773060"
-        }
+    "thumbAvif": "images/thumbs/bird-36.avif",
+    "largeAvif": "images/large/bird-36.avif"
+  },
+  {
+    "id": 38,
+    "title": "Australasian Swamphen",
+    "region": "victoria",
+    "place": "Princes Lawn",
+    "audio": {
+      "src": "audio/australasian_swamphen.mp3",
+      "credit": "Call © Marc Anderson, XC816781, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/816781"
     },
-    {
-        "id": 35,
-        "src": "images/bird-34.jpg",
-        "title": "Rock Dove",
-        "region": "victoria",
-        "place": "Evan Walker Bridge",
-        "audio": {
-            "src": "audio/rock_dove.mp3",
-            "credit": "Call © Marie-Lan Taÿ Pamart, XC541143, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/541143"
-        }
+    "thumbAvif": "images/thumbs/bird-37.avif",
+    "largeAvif": "images/large/bird-37.avif"
+  },
+  {
+    "id": 39,
+    "title": "Dusky Moorhen",
+    "region": "victoria",
+    "place": "Princes Lawn",
+    "audio": {
+      "src": "audio/dusky_moorhen.mp3",
+      "credit": "Call © Marc Anderson, XC1044982, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/1044982"
     },
-    {
-        "id": 36,
-        "src": "images/bird-35.jpg",
-        "title": "Magpie-lark",
-        "region": "victoria",
-        "place": "National Gallery of Victoria",
-        "audio": {
-            "src": "audio/magpie_lark.mp3",
-            "credit": "Call © Marc Anderson, XC1001931, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/1001931"
-        }
+    "thumbAvif": "images/thumbs/bird-38.avif",
+    "largeAvif": "images/large/bird-38.avif"
+  },
+  {
+    "id": 40,
+    "title": "Australian Magpie (Juvenile)",
+    "region": "victoria",
+    "place": "Princes Lawn",
+    "audio": {
+      "src": "audio/austalian_magpie.mp3",
+      "credit": "Bird song © Marc Anderson, XC597149, xeno-canto.org",
+      "license": "CC BY-NC-SA 4.0",
+      "sourceUrl": "https://xeno-canto.org/597149"
     },
-    {
-        "id": 37,
-        "src": "images/bird-36.jpg",
-        "title": "Australian Wood Duck",
-        "region": "victoria",
-        "place": "Princes Lawn",
-        "audio": {
-            "src": "audio/australian_wood_duck.mp3",
-            "credit": "Call © Marc Anderson, XC695198, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/695198"
-        }
-    },
-    {
-        "id": 38,
-        "src": "images/bird-37.jpg",
-        "title": "Australasian Swamphen",
-        "region": "victoria",
-        "place": "Princes Lawn",
-        "audio": {
-            "src": "audio/australasian_swamphen.mp3",
-            "credit": "Call © Marc Anderson, XC816781, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/816781"
-        }
-    },
-    {
-        "id": 39,
-        "src": "images/bird-38.jpg",
-        "title": "Dusky Moorhen",
-        "region": "victoria",
-        "place": "Princes Lawn",
-        "audio": {
-            "src": "audio/dusky_moorhen.mp3",
-            "credit": "Call © Marc Anderson, XC1044982, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/1044982"
-        }
-    },
-    {
-        "id": 40,
-        "src": "images/bird-39.jpg",
-        "title": "Australian Magpie (Juvenile)",
-        "region": "victoria",
-        "place": "Princes Lawn",
-        "audio": {
-            "src": "audio/austalian_magpie.mp3",
-            "credit": "Bird song © Marc Anderson, XC597149, xeno-canto.org",
-            "license": "CC BY-NC-SA 4.0",
-            "sourceUrl": "https://xeno-canto.org/597149"
-        }
-    }
-
+    "thumbAvif": "images/thumbs/bird-39.avif",
+    "largeAvif": "images/large/bird-39.avif"
+  }
 ]

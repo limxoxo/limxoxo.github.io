@@ -306,7 +306,7 @@
 
         // ---------- LOAD DATA + INIT MAP ----------
         Promise.all([
-            fetch('data/bird_data.json').then(r => r.json()),
+            fetch('data/bird_data_avif.json').then(r => r.json()),
             fetch('data/place_coord.json').then(r => r.json())
         ])
             .then(([birds, places]) => {
@@ -348,10 +348,12 @@
                     const safeTitle = bird.title.replace(/'/g, "\\'");
                     return `
                     <img
-                        src="${bird.src}"
+                        src="${bird.thumbAvif}"
                         class="popup-thumb"
                         alt="${bird.title}"
-                        onclick="openLightbox('${bird.src}', '${safeTitle}')"
+                        loading="lazy"
+                        decoding="async"
+                        onclick="openLightbox('${bird.largeAvif}', '${safeTitle}')"
                     >
                     `;
                 }).join('');

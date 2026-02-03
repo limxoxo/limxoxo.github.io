@@ -496,18 +496,23 @@
 
         return `
           <div class="col">
-            <div class="photo-box">
-              <img src="${bird.src}"
+              <div class="photo-box">
+                <img
+                  src="${bird.thumbAvif}"
                   class="gallery-img"
+                  loading="lazy"
+                  decoding="async"
+                  data-large-avif="${bird.largeAvif}"
                   data-title="${bird.title}"
                   data-location="${bird.region}"
                   data-place="${bird.place}"
                   data-audio="${audioSrc}"
-                  data-audio-credit="${audioCredit}">
-              <div class="bird-caption">${bird.title}</div>
+                  data-audio-credit="${audioCredit}"
+                  alt="${bird.title}">
+                <div class="bird-caption">${bird.title}</div>
+              </div>
             </div>
-          </div>
-        `;
+          `;
       }).join('');
 
       const totalCountEl = document.getElementById('totalCount');
@@ -527,8 +532,14 @@
       const overlayAttrib = document.getElementById('lightboxAttribution');
 
       function openLightbox(imgEl) {
-        // image + title
-        overlayImg.src = imgEl.getAttribute('src');
+        overlayImg.style.opacity = "0";
+
+        overlayImg.onload = () => {
+          overlayImg.style.opacity = "";
+        };
+
+        overlayImg.src = imgEl.dataset.largeAvif || imgEl.getAttribute('src');
+
         overlayCaption.textContent = imgEl.dataset.title || '';
         overlay.classList.add('show');
 
@@ -538,10 +549,8 @@
           currentAudio = null;
         }
 
-        // audio + attribution
         const audioSrc = imgEl.dataset.audio;
         const audioCredit = imgEl.dataset.audioCredit || '';
-
         overlayAttrib.textContent = audioCredit;
 
         if (audioSrc) {
@@ -551,6 +560,7 @@
           });
         }
       }
+
 
       function closeLightbox() {
         overlay.classList.remove('show');
