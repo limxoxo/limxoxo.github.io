@@ -534,5 +534,189 @@
     },
     "thumbAvif": "images/thumbs/bird-39.avif",
     "largeAvif": "images/large/bird-39.avif"
+  },
+  {
+    "id": 41,
+    "title": "Superb Fairy-wren",
+    "region": "victoria",
+    "place": "Coolart Wetlands & Homestead",
+    "thumbAvif": "images/thumbs/bird-40.avif",
+    "largeAvif": "images/large/bird-40.avif"
+  },
+  {
+    "id": 42,
+    "title": "Welcome Swallow",
+    "region": "new south wales",
+    "place": "Centennial Park",
+    "thumbAvif": "images/thumbs/bird-41.avif",
+    "largeAvif": "images/large/bird-41.avif"
+  },
+  {
+    "id": 43,
+    "title": "White-faced Heron",
+    "region": "new south wales",
+    "place": "Centennial Park",
+    "thumbAvif": "images/thumbs/bird-42.avif",
+    "largeAvif": "images/large/bird-42.avif"
+  },
+  {
+    "id": 44,
+    "title": "Long-billed Corella",
+    "region": "new south wales",
+    "place": "Centennial Park",
+    "thumbAvif": "images/thumbs/bird-43.avif",
+    "largeAvif": "images/large/bird-43.avif"
+  },
+  {
+    "id": 45,
+    "title": "Settler Goose",
+    "region": "new south wales",
+    "place": "Centennial Park",
+    "thumbAvif": "images/thumbs/bird-44.avif",
+    "largeAvif": "images/large/bird-44.avif"
+  },
+  {
+    "id": 46,
+    "title": "Australian Pelican",
+    "region": "new south wales",
+    "place": "Centennial Park",
+    "thumbAvif": "images/thumbs/bird-45.avif",
+    "largeAvif": "images/large/bird-45.avif"
+  },
+  {
+    "id": 47,
+    "title": "Masked Lapwing",
+    "region": "new south wales",
+    "place": "Centennial Park",
+    "thumbAvif": "images/thumbs/bird-46.avif",
+    "largeAvif": "images/large/bird-46.avif"
+  },
+  {
+    "id": 48,
+    "title": "Red Wattlebird",
+    "region": "victoria",
+    "place": "Hall Reserve",
+    "thumbAvif": "images/thumbs/bird-47.avif",
+    "largeAvif": "images/large/bird-47.avif"
+  },
+  {
+    "id": 49,
+    "title": "Large-billed Crow",
+    "region": "bangkok",
+    "place": "Lumphini Park",
+    "thumbAvif": "images/thumbs/bird-48.avif",
+    "largeAvif": "images/large/bird-48.avif"
+  },
+  {
+    "id": 50,
+    "title": "Large-billed Crow",
+    "region": "bangkok",
+    "place": "The Grand Palace",
+    "thumbAvif": "images/thumbs/bird-49.avif",
+    "largeAvif": "images/large/bird-49.avif"
+  },
+  {
+    "id": 51,
+    "title": "Black-collared Starling",
+    "region": "bangkok",
+    "place": "Saranrom Park",
+    "thumbAvif": "images/thumbs/bird-50.avif",
+    "largeAvif": "images/large/bird-50.avif"
+  },
+  {
+    "id": 52,
+    "title": "Little Egret",
+    "region": "bangkok",
+    "place": "Saranrom Park",
+    "thumbAvif": "images/thumbs/bird-51.avif",
+    "largeAvif": "images/large/bird-51.avif"
+  },
+  {
+    "id": 53,
+    "title": "Blue-tailed Bee-eater",
+    "region": "bangkok",
+    "place": "Khlong Lat Mayom Floating Market",
+    "thumbAvif": "images/thumbs/bird-52.avif",
+    "largeAvif": "images/large/bird-52.avif"
+  },
+  {
+    "id": 54,
+    "title": "Brown-throated Sunbird",
+    "region": "laos",
+    "place": "Luang Prabang",
+    "thumbAvif": "images/thumbs/bird-53.avif",
+    "largeAvif": "images/large/bird-53.avif"
+  },
+  {
+    "id": 55,
+    "title": "Black-crowned Night Heron",
+    "region": "vietnam",
+    "place": "Hoan Kiem Lake",
+    "thumbAvif": "images/thumbs/bird-54.avif",
+    "largeAvif": "images/large/bird-54.avif"
+  },
+  {
+    "id": 56,
+    "title": "Common Flameback",
+    "region": "singapore",
+    "place": "Gardens by the Bay",
+    "thumbAvif": "images/thumbs/bird-55.avif",
+    "largeAvif": "images/large/bird-55.avif"
+  },
+  {
+    "id": 57,
+    "title": "Malaysian Pied Fantail",
+    "region": "singapore",
+    "place": "Gardens by the Bay",
+    "thumbAvif": "images/thumbs/bird-56.avif",
+    "largeAvif": "images/large/bird-56.avif"
+  },
+  {
+    "id": 58,
+    "title": "White-breasted Waterhen",
+    "region": "singapore",
+    "place": "Gardens by the Bay",
+    "thumbAvif": "images/thumbs/bird-57.avif",
+    "largeAvif": "images/large/bird-57.avif"
+  },
+  {
+    "id": 59,
+    "title": "Malayan Night Heron",
+    "region": "singapore",
+    "place": "Gardens by the Bay",
+    "thumbAvif": "images/thumbs/bird-58.avif",
+    "largeAvif": "images/large/bird-58.avif"
+  },
+  {
+    "id": 60,
+    "title": "Ornate Sunbird",
+    "region": "singapore",
+    "place": "Gardens by the Bay",
+    "thumbAvif": "images/thumbs/bird-59.avif",
+    "largeAvif": "images/large/bird-59.avif"
+  },
+  {
+    "id": 61,
+    "title": "Silvereye",
+    "region": "victoria",
+    "place": "Southern Lawn",
+    "thumbAvif": "images/thumbs/bird-60.avif",
+    "largeAvif": "images/large/bird-60.avif"
+  },
+  {
+    "id": 62,
+    "title": "Pied Currawong",
+    "region": "victoria",
+    "place": "Westerfolds Park",
+    "thumbAvif": "images/thumbs/bird-61.avif",
+    "largeAvif": "images/large/bird-61.avif"
+  },
+  {
+    "id": 63,
+    "title": "White-winged Chough",
+    "region": "victoria",
+    "place": "Westerfolds Park",
+    "thumbAvif": "images/thumbs/bird-62.avif",
+    "largeAvif": "images/large/bird-62.avif"
   }
 ]

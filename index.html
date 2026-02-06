@@ -101,7 +101,7 @@
 
     #filterPanel.open {
       opacity: 1;
-      max-height: 80px;
+      max-height: 260px;
       /* adjust if you add more filters */
       pointer-events: auto;
     }
@@ -424,15 +424,9 @@
         <div id="filterPanel" class="text-start mt-2">
           <small class="text-muted me-2">Filter by location:</small>
 
-          <div class="form-check form-check-inline">
-            <input class="form-check-input location-checkbox" type="checkbox" id="locTas" value="tasmania">
-            <label class="form-check-label" for="locTas">Tasmania</label>
-          </div>
 
-          <div class="form-check form-check-inline">
-            <input class="form-check-input location-checkbox" type="checkbox" id="locVic" value="victoria">
-            <label class="form-check-label" for="locVic">Victoria</label>
-          </div>
+          <div id="regionFilters" class="mt-1"></div>
+
         </div>
 
         <small class="text-muted d-block mt-2">
@@ -518,10 +512,58 @@
       const totalCountEl = document.getElementById('totalCount');
       if (totalCountEl) totalCountEl.textContent = birds.length;
 
+      buildRegionFilters(birds);
+
       setupLightbox();
       setupSearchFilterRandom();
       setupScrollTop();
     }
+
+
+    // -------- AUTO REGION FILTERS --------
+    function titleCase(str) {
+      return (str || "")
+        .toLowerCase()
+        .split(" ")
+        .map(word => {
+          if (!word) return "";
+          // handle hyphenated words: "new-south" -> "New-South"
+          return word.split("-").map(part => {
+            if (!part) return "";
+            return part.charAt(0).toUpperCase() + part.slice(1);
+          }).join("-");
+        })
+        .join(" ")
+        .trim();
+    }
+
+    function buildRegionFilters(birds) {
+      const filterPanel = document.getElementById("filterPanel");
+      const regionFilters = document.getElementById("regionFilters");
+      if (!filterPanel || !regionFilters) return;
+
+      // Normalise regions (trim + lowercase) and collect unique values
+      const regions = Array.from(
+        new Set(
+          (birds || [])
+            .map(b => (b.region || "").toString().trim().toLowerCase())
+            .filter(Boolean)
+        )
+      ).sort((a, b) => a.localeCompare(b));
+
+      // Build checkbox HTML
+      regionFilters.innerHTML = regions.map((region, idx) => {
+        const id = `locAuto${idx}`;
+        const label = titleCase(region);
+        return `
+          <div class="form-check form-check-inline">
+            <input class="form-check-input location-checkbox" type="checkbox" id="${id}" value="${region}">
+            <label class="form-check-label" for="${id}">${label}</label>
+          </div>
+        `;
+      }).join("");
+    }
+
 
     // -------- MINIMAL LIGHTBOX (NO BOX, NO ARROWS) --------
     function setupLightbox() {

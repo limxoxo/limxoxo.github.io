@@ -306,7 +306,7 @@
 
         // ---------- LOAD DATA + INIT MAP ----------
         Promise.all([
-            fetch('data/bird_data_avif.json').then(r => r.json()),
+            fetch('data/bird_data.json').then(r => r.json()),
             fetch('data/place_coord.json').then(r => r.json())
         ])
             .then(([birds, places]) => {
