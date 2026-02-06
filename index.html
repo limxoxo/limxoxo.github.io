@@ -331,7 +331,55 @@
       opacity: 0.2;
       filter: blur(80px);
     }
-  </style>
+
+    /* --- DATE RANGE (YEAR-MONTH) SLIDER (IMPROVED) --- */
+    .range-wrapper { position: relative; height: 34px; margin-top: 6px; }
+    .range-wrapper input[type=range]{
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%;
+      margin: 0;
+      pointer-events: none;          /* only thumbs are clickable */
+      background: transparent;
+      -webkit-appearance: none;
+      appearance: none;
+      accent-color: transparent;     /* avoid default blue fill where supported */
+    }
+    .range-wrapper input[type=range]::-webkit-slider-runnable-track{
+      height: 6px;
+      border-radius: 999px;
+      background: transparent;       /* we'll paint the track via JS on the input element */
+    }
+    .range-wrapper input[type=range]::-moz-range-track{
+      height: 6px;
+      border-radius: 999px;
+      background: transparent;
+    }
+    .range-wrapper input[type=range]::-webkit-slider-thumb{
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      pointer-events: all;
+      cursor: pointer;
+      border: 2px solid rgba(255,255,255,0.9);
+      background: rgba(20,20,20,0.9);
+      margin-top: -5px; /* center on 6px track */
+      position: relative;
+      z-index: 3;
+    }
+    .range-wrapper input[type=range]::-moz-range-thumb{
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      pointer-events: all;
+      cursor: pointer;
+      border: 2px solid rgba(255,255,255,0.9);
+      background: rgba(20,20,20,0.9);
+      position: relative;
+      z-index: 3;
+    }
+
+</style>
   
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-N7NXSDJGF6"></script>
@@ -427,6 +475,18 @@
 
           <div id="regionFilters" class="mt-1"></div>
 
+          <hr class="my-2">
+          <small class="text-muted me-2">Filter by date (year-month):</small>
+          <div class="range-wrapper">
+            <input type="range" id="minMonth" step="1">
+            <input type="range" id="maxMonth" step="1">
+          </div>
+          <div class="range-labels">
+            <span id="minMonthLabel"></span>
+            <span id="maxMonthLabel"></span>
+          </div>
+
+
         </div>
 
         <small class="text-muted d-block mt-2">
@@ -500,6 +560,7 @@
                   data-title="${bird.title}"
                   data-location="${bird.region}"
                   data-place="${bird.place}"
+                  data-date="${bird.date || ""}"
                   data-audio="${audioSrc}"
                   data-audio-credit="${audioCredit}"
                   alt="${bird.title}">
@@ -641,6 +702,161 @@
       const filterPanel = document.getElementById('filterPanel');
       const locationCheckboxes = Array.from(document.querySelectorAll('.location-checkbox'));
 
+
+      // --- DATE RANGE (YEAR-MONTH) SLIDER ---
+      const minMonthEl = document.getElementById('minMonth');
+      const maxMonthEl = document.getElementById('maxMonth');
+      const minMonthLabel = document.getElementById('minMonthLabel');
+      const maxMonthLabel = document.getElementById('maxMonthLabel');
+
+      
+      function parseYM(ym) {
+        if (!ym || typeof ym !== 'string') return null;
+        const m = ym.trim().match(/^(\d{4})-(\d{2})$/);
+        if (!m) return null;
+        const y = parseInt(m[1], 10);
+        const mo = parseInt(m[2], 10);
+        if (!Number.isFinite(y) || !Number.isFinite(mo) || mo < 1 || mo > 12) return null;
+        return { y, mo };
+      }
+
+      function addMonths({ y, mo }, delta) {
+        // delta can be negative
+        let total = (y * 12) + (mo - 1) + delta;
+        const ny = Math.floor(total / 12);
+        const nmo = (total % 12) + 1;
+        return { y: ny, mo: nmo };
+      }
+
+      function fmtYM({ y, mo }) {
+        return `${y}-${String(mo).padStart(2, '0')}`;
+      }
+
+      function buildMonths(startYM, endYM) {
+        const s = parseYM(startYM);
+        const e = parseYM(endYM);
+        if (!s || !e) return [];
+        const out = [];
+        let cur = { y: s.y, mo: s.mo };
+        const endIdx = (e.y * 12) + (e.mo - 1);
+        while ((cur.y * 12) + (cur.mo - 1) <= endIdx) {
+          out.push(fmtYM(cur));
+          cur = addMonths(cur, 1);
+        }
+        return out;
+      }
+
+      // Initialise DISCRETE month ticks (better on iPhone)
+      const birdYMs = cols
+        .map(col => col.querySelector('.gallery-img')?.dataset?.date || "")
+        .map(s => (typeof s === 'string' ? s.trim() : ""))
+        .filter(s => /^\d{4}-\d{2}$/.test(s));
+
+      // If there are no dates, default to a single "this month" tick
+      let minYM = birdYMs.length
+        ? birdYMs.reduce((a, b) => (a < b ? a : b))
+        : fmtYM({ y: new Date().getFullYear(), mo: new Date().getMonth() + 1 });
+
+      let maxYM = birdYMs.length
+        ? birdYMs.reduce((a, b) => (a > b ? a : b))
+        : minYM;
+
+      // Pad the slider with extra months even if no birds exist in those months (touch-friendly)
+      const PAD_MONTHS = 6;
+      const minObj = addMonths(parseYM(minYM), -PAD_MONTHS);
+      const maxObj = addMonths(parseYM(maxYM),  PAD_MONTHS);
+
+      const MONTHS = buildMonths(fmtYM(minObj), fmtYM(maxObj));
+      const ymToPos = new Map(MONTHS.map((ym, i) => [ym, i]));
+      const posToYM = (pos) => MONTHS[Math.max(0, Math.min(MONTHS.length - 1, pos))];
+
+      // When the thumbs overlap, keep the active one on top (prevents 'stuck' feel on mobile)
+      let activeSlider = 'max';
+      const setThumbZ = () => {
+        if (!minMonthEl || !maxMonthEl) return;
+        if (activeSlider === 'min') {
+          minMonthEl.style.zIndex = 6;
+          maxMonthEl.style.zIndex = 5;
+        } else {
+          maxMonthEl.style.zIndex = 6;
+          minMonthEl.style.zIndex = 5;
+        }
+      };
+
+      // Paint the track ourselves so it doesn't show the default blue fill
+      function updateRangeFill() {
+        if (!minMonthEl || !maxMonthEl) return;
+        const minV = parseInt(minMonthEl.value, 10);
+        const maxV = parseInt(maxMonthEl.value, 10);
+        const minB = parseInt(minMonthEl.min, 10);
+        const maxB = parseInt(minMonthEl.max, 10);
+        const span = Math.max(1, maxB - minB);
+
+        const leftPct  = ((minV - minB) / span) * 100;
+        const rightPct = ((maxV - minB) / span) * 100;
+
+        const bg = `linear-gradient(to right,
+          rgba(180,180,180,0.45) 0%,
+          rgba(180,180,180,0.45) ${leftPct}%,
+          rgba(255,255,255,0.9) ${leftPct}%,
+          rgba(255,255,255,0.9) ${rightPct}%,
+          rgba(180,180,180,0.45) ${rightPct}%,
+          rgba(180,180,180,0.45) 100%)`;
+
+        minMonthEl.style.background = bg;
+        maxMonthEl.style.background = bg;
+      }
+
+      if (minMonthEl && maxMonthEl) {
+        minMonthEl.min = "0";
+        minMonthEl.max = String(MONTHS.length - 1);
+        maxMonthEl.min = "0";
+        maxMonthEl.max = String(MONTHS.length - 1);
+
+        // Set defaults to the actual observed bounds (not the padded ends)
+        const defaultMinPos = ymToPos.get(minYM) ?? 0;
+        const defaultMaxPos = ymToPos.get(maxYM) ?? (MONTHS.length - 1);
+
+        minMonthEl.value = String(defaultMinPos);
+        maxMonthEl.value = String(defaultMaxPos);
+
+        const updateMonthLabels = () => {
+          if (minMonthLabel) minMonthLabel.textContent = posToYM(parseInt(minMonthEl.value, 10));
+          if (maxMonthLabel) maxMonthLabel.textContent = posToYM(parseInt(maxMonthEl.value, 10));
+        };
+
+        updateMonthLabels();
+        setThumbZ();
+        updateRangeFill();
+
+        minMonthEl.addEventListener('pointerdown', () => { activeSlider = 'min'; setThumbZ(); });
+        minMonthEl.addEventListener('mousedown', () => { activeSlider = 'min'; setThumbZ(); });
+
+        minMonthEl.addEventListener('input', () => {
+          if (parseInt(minMonthEl.value, 10) > parseInt(maxMonthEl.value, 10)) {
+            minMonthEl.value = maxMonthEl.value;
+          }
+          updateMonthLabels();
+          setThumbZ();
+          updateRangeFill();
+          filterBirds();
+        });
+
+        maxMonthEl.addEventListener('pointerdown', () => { activeSlider = 'max'; setThumbZ(); });
+        maxMonthEl.addEventListener('mousedown', () => { activeSlider = 'max'; setThumbZ(); });
+
+        maxMonthEl.addEventListener('input', () => {
+          if (parseInt(maxMonthEl.value, 10) < parseInt(minMonthEl.value, 10)) {
+            maxMonthEl.value = minMonthEl.value;
+          }
+          updateMonthLabels();
+          setThumbZ();
+          updateRangeFill();
+          filterBirds();
+        });
+      }
+
+
       if (filterToggleBtn && filterPanel) {
         filterToggleBtn.addEventListener('click', () => {
           filterPanel.classList.toggle('open');
@@ -671,11 +887,27 @@
           const matchesText = name.includes(q);
 
           let matchesLocation = true;
+
+          // Date range match (year-month)
+          let matchesDate = true;
+          if (minMonthEl && maxMonthEl) {
+            const birdYM = imgEl?.dataset?.date || "";
+            const birdPos = ymToPos.get((birdYM || '').trim());
+            const minPos = parseInt(minMonthEl.value, 10);
+            const maxPos = parseInt(maxMonthEl.value, 10);
+            if (birdPos === undefined) {
+              // If a bird has no date, hide it when date filter is active
+              matchesDate = false;
+            } else {
+              matchesDate = (birdPos >= minPos && birdPos <= maxPos);
+            }
+          }
+
           if (activeLocations.length > 0) {
             matchesLocation = imgLocations.some(l => activeLocations.includes(l));
           }
 
-          col.style.display = (matchesText && matchesLocation) ? '' : 'none';
+          col.style.display = (matchesText && matchesLocation && matchesDate) ? '' : 'none';
         });
 
         updateVisibleCount();
