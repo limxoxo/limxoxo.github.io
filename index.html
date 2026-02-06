@@ -332,23 +332,36 @@
       filter: blur(80px);
     }
 
-    /* --- DATE RANGE (YEAR-MONTH) SLIDER (IMPROVED) --- */
+    /* --- DATE RANGE (YEAR-MONTH) SLIDER (TRACK DIV) --- */
+
     .range-wrapper { position: relative; height: 34px; margin-top: 6px; }
+    .range-track{
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 14px;                 /* centre the 6px track in 34px wrapper */
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(180,180,180,0.45);
+      z-index: 1;
+    }
     .range-wrapper input[type=range]{
       position: absolute;
       left: 0; top: 0;
       width: 100%;
+      height: 34px;
       margin: 0;
-      pointer-events: none;          /* only thumbs are clickable */
-      background: transparent;
+      pointer-events: none;          /* only thumbs clickable */
+      background: transparent !important;
       -webkit-appearance: none;
       appearance: none;
-      accent-color: transparent;     /* avoid default blue fill where supported */
+      z-index: 2;
+      accent-color: transparent;
     }
     .range-wrapper input[type=range]::-webkit-slider-runnable-track{
       height: 6px;
       border-radius: 999px;
-      background: transparent;       /* we'll paint the track via JS on the input element */
+      background: transparent;       /* track is drawn by .range-track */
     }
     .range-wrapper input[type=range]::-moz-range-track{
       height: 6px;
@@ -364,7 +377,7 @@
       cursor: pointer;
       border: 2px solid rgba(255,255,255,0.9);
       background: rgba(20,20,20,0.9);
-      margin-top: -5px; /* center on 6px track */
+      margin-top: 9px;              /* align thumb with centred track */
       position: relative;
       z-index: 3;
     }
@@ -378,6 +391,8 @@
       position: relative;
       z-index: 3;
     }
+
+
 
 </style>
   
@@ -478,6 +493,7 @@
           <hr class="my-2">
           <small class="text-muted me-2">Filter by date (year-month):</small>
           <div class="range-wrapper">
+            <div class="range-track" id="monthRangeTrack"></div>
             <input type="range" id="minMonth" step="1">
             <input type="range" id="maxMonth" step="1">
           </div>
@@ -803,8 +819,8 @@
           rgba(180,180,180,0.45) ${rightPct}%,
           rgba(180,180,180,0.45) 100%)`;
 
-        minMonthEl.style.background = bg;
-        maxMonthEl.style.background = bg;
+        const trackEl = document.getElementById('monthRangeTrack');
+        if (trackEl) trackEl.style.background = bg;
       }
 
       if (minMonthEl && maxMonthEl) {
