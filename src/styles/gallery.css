@@ -9,6 +9,19 @@
   display: flex;
   gap: var(--space-2);
   align-items: stretch;
+  flex-wrap: wrap;
+}
+
+/* On narrow screens: search fills full width, buttons share next line */
+@media (max-width: 520px) {
+  .search-input {
+    flex: 1 1 100%;
+  }
+  .filter-btn,
+  .random-btn {
+    flex: 1;
+    justify-content: center;
+  }
 }
 
 .search-input {
@@ -57,7 +70,7 @@
 
 #filterPanel.open {
   opacity: 1;
-  max-height: 300px;
+  max-height: 420px;
   pointer-events: auto;
 }
 
@@ -124,13 +137,14 @@
 
 /* === MASONRY GALLERY GRID === */
 .gallery-grid {
-  columns: 2;
+  columns: 1;
   column-gap: var(--space-4);
   padding: 0 var(--space-5) var(--space-9);
   max-width: var(--max-width);
   margin: 0 auto;
 }
 
+@media (min-width: 480px)  { .gallery-grid { columns: 2; } }
 @media (min-width: 640px)  { .gallery-grid { columns: 2; column-gap: var(--space-5); } }
 @media (min-width: 900px)  { .gallery-grid { columns: 3; } }
 @media (min-width: 1200px) { .gallery-grid { columns: 4; } }
