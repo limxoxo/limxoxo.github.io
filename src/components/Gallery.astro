@@ -66,6 +66,33 @@ import Lightbox from './Lightbox.astro';
     setupLightbox();
     setupSearchFilterRandom();
     setupScrollTop();
+    setupCardAnimations();
+  }
+
+  // --- STAGGERED CARD ANIMATIONS ---
+  function setupCardAnimations() {
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('#galleryGrid .bird-card').forEach(function(card) {
+        card.classList.add('visible');
+      });
+      return;
+    }
+
+    var observer = new IntersectionObserver(function(entries) {
+      var intersecting = entries
+        .filter(function(e) { return e.isIntersecting; })
+        .sort(function(a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });
+
+      intersecting.forEach(function(entry, i) {
+        entry.target.style.transitionDelay = (i * 60) + 'ms';
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+
+    document.querySelectorAll('#galleryGrid .bird-card').forEach(function(card) {
+      observer.observe(card);
+    });
   }
 
   // --- REGION FILTERS ---
