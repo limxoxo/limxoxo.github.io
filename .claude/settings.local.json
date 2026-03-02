@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(PYNODE=\"/c/Users/Selim/AppData/Roaming/JetBrains/PyCharm2024.2/node/versions/22.11.0\")",
+      "Bash(export PATH=\"$PYNODE:$PATH\")",
+      "Bash(npm run build)",
+      "Bash(grep -l \"bird-card\" dist/_astro/*.css)",
+      "Bash(grep \"\\\\.bird-card\" dist/_astro/*.css)",
+      "Bash(grep --color=never \"font-serif\\\\|color-bg\\\\|nav-brand\" dist/_astro/*.css)"
+    ]
+  }
+}

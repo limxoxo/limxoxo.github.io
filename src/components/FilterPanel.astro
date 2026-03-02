@@ -1,0 +1,47 @@
+---
+---
+
+<div class="filter-bar">
+  <div class="filter-row">
+    <input
+      id="searchInput"
+      type="text"
+      class="search-input"
+      placeholder="Search by name…"
+      aria-label="Search birds by name"
+    >
+    <button id="filterToggleBtn" class="filter-btn" aria-expanded="false" aria-controls="filterPanel">
+      Filters ▾
+    </button>
+    <button id="randomBtn" class="random-btn" aria-label="Jump to a random bird">
+      Random
+    </button>
+  </div>
+
+  <div id="filterPanel" role="region" aria-label="Filter options">
+    <div class="filter-panel-inner">
+      <span class="filter-label">Location</span>
+      <div id="regionFilters"></div>
+
+      <span class="date-filter-label">Date range</span>
+      <div class="range-wrapper">
+        <div class="range-track" id="monthRangeTrack"></div>
+        <input type="range" id="minMonth" step="1" aria-label="Earliest date">
+        <input type="range" id="maxMonth" step="1" aria-label="Latest date">
+      </div>
+      <div class="range-labels">
+        <span id="minMonthLabel"></span>
+        <span id="maxMonthLabel"></span>
+      </div>
+    </div>
+  </div>
+
+  <p class="visible-count">
+    Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> birds
+  </p>
+</div>
+
+<style is:global>
+  @import '../styles/gallery.css';
+  @import '../styles/filter.css';
+</style>

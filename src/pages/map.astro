@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import MapView from '../components/MapView.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="Bird Map – Birds by Selim" description="Interactive map of bird photography locations.">
+  <Nav />
+
+  <section class="intro">
+    <h1>Bird Map</h1>
+    <p>Locations where the photos were taken.</p>
+  </section>
+
+  <MapView />
+
+  <Footer />
+</Base>

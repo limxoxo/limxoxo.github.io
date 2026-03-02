@@ -1,0 +1,94 @@
+/* === DATE RANGE SLIDER === */
+.date-filter-label {
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+  display: block;
+}
+
+.range-wrapper {
+  position: relative;
+  height: 34px;
+  margin-top: 6px;
+}
+
+.range-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 14px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-border);
+  z-index: 1;
+}
+
+.range-wrapper input[type=range] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 34px;
+  margin: 0;
+  pointer-events: none;
+  background: transparent !important;
+  -webkit-appearance: none;
+  appearance: none;
+  z-index: 2;
+  accent-color: transparent;
+}
+
+.range-wrapper input[type=range]::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: transparent;
+}
+
+.range-wrapper input[type=range]::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: transparent;
+}
+
+.range-wrapper input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  pointer-events: all;
+  cursor: pointer;
+  border: 2px solid var(--color-bg);
+  background: var(--color-text);
+  margin-top: 9px;
+  position: relative;
+  z-index: 3;
+  transition: transform var(--transition-fast);
+}
+
+.range-wrapper input[type=range]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.range-wrapper input[type=range]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  pointer-events: all;
+  cursor: pointer;
+  border: 2px solid var(--color-bg);
+  background: var(--color-text);
+  position: relative;
+  z-index: 3;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+}

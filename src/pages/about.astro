@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="About – Birds by Selim" description="About the photographer behind Birds by Selim.">
+  <Nav />
+
+  <section class="intro">
+    <h1>About</h1>
+  </section>
+
+  <article class="about-content container">
+    <p>
+      I'm Selim, a photographer based in Tasmania, Australia.
+      I started photographing birds as a way to slow down and pay attention to the natural world around me.
+    </p>
+    <p>
+      These photos were taken across Australia — mainly Tasmania, Victoria, and New South Wales — as well as
+      Southeast Asia, including Thailand, Laos, Vietnam, and Singapore.
+    </p>
+    <p>
+      All bird call recordings on this site are sourced from
+      <a href="https://xeno-canto.org" target="_blank" rel="noopener">xeno-canto.org</a>
+      and are used under their respective Creative Commons licences.
+    </p>
+  </article>
+
+  <Footer />
+</Base>
+
+<style>
+  .about-content {
+    max-width: 640px;
+    padding-bottom: 96px;
+  }
+
+  .about-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+
+  .about-content a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: var(--color-text);
+  }
+
+  .about-content a:hover {
+    color: var(--color-text-muted);
+  }
+</style>

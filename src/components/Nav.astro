@@ -1,0 +1,51 @@
+---
+const pathname = Astro.url.pathname;
+---
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">Birds by Selim</a>
+
+    <ul class="nav-links" id="navLinks">
+      <li>
+        <a href="/" aria-current={pathname === '/' ? 'page' : undefined}>Gallery</a>
+      </li>
+      <li>
+        <a href="/map" aria-current={pathname === '/map' ? 'page' : undefined}>Map</a>
+      </li>
+      <li>
+        <button class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+          ◐
+        </button>
+      </li>
+    </ul>
+
+    <button
+      class="nav-hamburger"
+      id="navToggle"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<style>
+  @import '../styles/nav.css';
+</style>
+
+<script is:inline>
+  (function() {
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    if (toggle && links) {
+      toggle.addEventListener('click', function() {
+        const isOpen = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+  })();
+</script>

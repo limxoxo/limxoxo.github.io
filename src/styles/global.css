@@ -1,0 +1,115 @@
+/* === DESIGN TOKENS === */
+:root {
+  /* Colors */
+  --color-bg:          #faf9f7;
+  --color-bg-alt:      #f2f1ef;
+  --color-text:        #1a1a1a;
+  --color-text-muted:  #6b6b6b;
+  --color-border:      #e0deda;
+  --color-accent:      #1a1a1a;
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans:  'DM Sans', system-ui, sans-serif;
+
+  /* Scale */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-md:   1.25rem;
+  --text-lg:   1.563rem;
+  --text-xl:   1.953rem;
+  --text-2xl:  2.441rem;
+  --text-3xl:  3.052rem;
+
+  /* Spacing */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+
+  /* Layout */
+  --max-width: 1400px;
+  --nav-height: 60px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-mid:  0.35s ease;
+}
+
+/* === DARK MODE === */
+body.dark-mode {
+  --color-bg:         #111110;
+  --color-bg-alt:     #1c1c1b;
+  --color-text:       #e8e6e1;
+  --color-text-muted: #9a9790;
+  --color-border:     #2e2d2b;
+}
+
+/* === RESET === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+img, video { max-width: 100%; display: block; }
+button { font: inherit; cursor: pointer; background: none; border: none; }
+a { color: inherit; text-decoration: none; }
+
+/* === BASE === */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  transition: background var(--transition-mid), color var(--transition-mid);
+  min-height: 100vh;
+}
+
+/* === TYPOGRAPHY === */
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+/* === INTRO SECTION === */
+.intro {
+  text-align: center;
+  padding: var(--space-8) var(--space-4) var(--space-6);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.intro h1 {
+  font-size: clamp(var(--text-xl), 5vw, var(--text-3xl));
+  margin-bottom: var(--space-3);
+  letter-spacing: 0.05em;
+}
+
+.intro p {
+  font-size: var(--text-md);
+  color: var(--color-text-muted);
+  font-weight: 300;
+  letter-spacing: 0.03em;
+}
+
+/* === CONTAINER === */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
