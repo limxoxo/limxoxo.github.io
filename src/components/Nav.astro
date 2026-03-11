@@ -13,12 +13,11 @@ const pathname = Astro.url.pathname;
       <li>
         <a href="/map" aria-current={pathname === '/map' ? 'page' : undefined}>Map</a>
       </li>
-      <li>
-        <button class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
-          ◐
-        </button>
-      </li>
     </ul>
+
+    <button class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      ◐
+    </button>
 
     <button
       class="nav-hamburger"

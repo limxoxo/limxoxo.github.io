@@ -781,5 +781,221 @@
     "thumbAvif": "images/thumbs/bird-62.avif",
     "largeAvif": "images/large/bird-62.avif",
     "date": "2026-01"
+  },
+  {
+    "id": 64,
+    "title": "Black Swan",
+    "region": "victoria",
+    "place": "Devilbend Reservoir",
+    "thumbAvif": "images/thumbs/bird-64.avif",
+    "largeAvif": "images/large/bird-64.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 65,
+    "title": "Spotted Dove",
+    "region": "victoria",
+    "place": "Coolart Wetlands & Homestead",
+    "thumbAvif": "images/thumbs/bird-65.avif",
+    "largeAvif": "images/large/bird-65.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 66,
+    "title": "Red-Capped Plover",
+    "region": "victoria",
+    "place": "Coolart Wetlands & Homestead",
+    "thumbAvif": "images/thumbs/bird-66.avif",
+    "largeAvif": "images/large/bird-66.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 67,
+    "title": "Red-Capped Plover",
+    "region": "victoria",
+    "place": "Coolart Wetlands & Homestead",
+    "thumbAvif": "images/thumbs/bird-67.avif",
+    "largeAvif": "images/large/bird-67.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 68,
+    "title": "Wedge-Tailed Eagle",
+    "region": "victoria",
+    "place": "Coolart Wetlands & Homestead",
+    "thumbAvif": "images/thumbs/bird-68.avif",
+    "largeAvif": "images/large/bird-68.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 69,
+    "title": "Wedge-Tailed Eagle",
+    "region": "victoria",
+    "place": "Coolart Wetlands & Homestead",
+    "thumbAvif": "images/thumbs/bird-69.avif",
+    "largeAvif": "images/large/bird-69.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 70,
+    "title": "Double-Banded Plover",
+    "region": "victoria",
+    "place": "Flinders Ocean Beach",
+    "thumbAvif": "images/thumbs/bird-70.avif",
+    "largeAvif": "images/large/bird-70.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 71,
+    "title": "Galah",
+    "region": "victoria",
+    "place": "Flinders Ocean Beach",
+    "thumbAvif": "images/thumbs/bird-71.avif",
+    "largeAvif": "images/large/bird-71.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 72,
+    "title": "Galah",
+    "region": "victoria",
+    "place": "Flinders Ocean Beach",
+    "thumbAvif": "images/thumbs/bird-72.avif",
+    "largeAvif": "images/large/bird-72.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 73,
+    "title": "Little Pied Cormorant",
+    "region": "victoria",
+    "place": "Flinders Ocean Beach",
+    "thumbAvif": "images/thumbs/bird-73.avif",
+    "largeAvif": "images/large/bird-73.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 74,
+    "title": "Sooty Oystercatcher",
+    "region": "victoria",
+    "place": "Flinders Ocean Beach",
+    "thumbAvif": "images/thumbs/bird-74.avif",
+    "largeAvif": "images/large/bird-74.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 75,
+    "title": "Grey Fantail",
+    "region": "victoria",
+    "place": "Flinders Ocean Beach",
+    "thumbAvif": "images/thumbs/bird-75.avif",
+    "largeAvif": "images/large/bird-75.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 76,
+    "title": "Kangaroo and Joey",
+    "region": "victoria",
+    "place": "Seawinds Gardens",
+    "thumbAvif": "images/thumbs/bird-76.avif",
+    "largeAvif": "images/large/bird-76.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 77,
+    "title": "Cape Barren Geese",
+    "region": "victoria",
+    "place": "Bittern Reservoir",
+    "thumbAvif": "images/thumbs/bird-77.avif",
+    "largeAvif": "images/large/bird-77.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 78,
+    "title": "Superb Fairywren",
+    "region": "victoria",
+    "place": "Bittern Reservoir",
+    "thumbAvif": "images/thumbs/bird-78.avif",
+    "largeAvif": "images/large/bird-78.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 79,
+    "title": "Black-Fronted Dotterel",
+    "region": "victoria",
+    "place": "Bittern Reservoir",
+    "thumbAvif": "images/thumbs/bird-79.avif",
+    "largeAvif": "images/large/bird-79.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 80,
+    "title": "Grey Fantail",
+    "region": "victoria",
+    "place": "Bittern Reservoir",
+    "thumbAvif": "images/thumbs/bird-80.avif",
+    "largeAvif": "images/large/bird-80.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 81,
+    "title": "Golden Whistler",
+    "region": "victoria",
+    "place": "Bittern Reservoir",
+    "thumbAvif": "images/thumbs/bird-81.avif",
+    "largeAvif": "images/large/bird-81.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 82,
+    "title": "Golden Whistler",
+    "region": "victoria",
+    "place": "Bittern Reservoir",
+    "thumbAvif": "images/thumbs/bird-82.avif",
+    "largeAvif": "images/large/bird-82.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 83,
+    "title": "Eastern Yellow Robin",
+    "region": "victoria",
+    "place": "Balbirooroo Wetlands",
+    "thumbAvif": "images/thumbs/bird-83.avif",
+    "largeAvif": "images/large/bird-83.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 84,
+    "title": "Eastern Yellow Robin",
+    "region": "victoria",
+    "place": "Balbirooroo Wetlands",
+    "thumbAvif": "images/thumbs/bird-84.avif",
+    "largeAvif": "images/large/bird-84.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 85,
+    "title": "Eastern Yellow Robin",
+    "region": "victoria",
+    "place": "Balbirooroo Wetlands",
+    "thumbAvif": "images/thumbs/bird-85.avif",
+    "largeAvif": "images/large/bird-85.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 86,
+    "title": "Brown Thornbill",
+    "region": "victoria",
+    "place": "Balbirooroo Wetlands",
+    "thumbAvif": "images/thumbs/bird-86.avif",
+    "largeAvif": "images/large/bird-86.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 87,
+    "title": "Grey Fantail",
+    "region": "victoria",
+    "place": "Balbirooroo Wetlands",
+    "thumbAvif": "images/thumbs/bird-87.avif",
+    "largeAvif": "images/large/bird-87.avif",
+    "date": "2026-03"
   }
 ]

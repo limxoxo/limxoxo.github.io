@@ -125,6 +125,12 @@
   color: #fff;
 }
 
+/* No arrows — keyboard on desktop, swipe on mobile */
+.lightbox-prev,
+.lightbox-next {
+  display: none;
+}
+
 @media (max-width: 480px) {
   .lightbox-prev { left: var(--space-2); }
   .lightbox-next { right: var(--space-2); }

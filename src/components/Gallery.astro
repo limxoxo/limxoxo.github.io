@@ -16,9 +16,9 @@ import Lightbox from './Lightbox.astro';
 </style>
 
 <script is:inline>
-  let currentAudio = null;
-  let currentLightboxIndex = -1;
-  let visibleCards = [];
+  var currentAudio = null;
+  var lbCards = [];
+  var lbIndex = -1;
 
   window.onload = function() {
     fetch('/data/bird_data.json')
@@ -27,36 +27,54 @@ import Lightbox from './Lightbox.astro';
       .catch(function(err) { console.error('Error loading bird_data.json', err); });
   };
 
+  function getColumnCount() {
+    var w = window.innerWidth;
+    if (w >= 1200) return 4;
+    if (w >= 900) return 3;
+    if (w >= 480) return 2;
+    return 1;
+  }
+
+  function cardHTML(bird) {
+    var audio = bird.audio || {};
+    var audioSrc = audio.src || '';
+    var audioCredit = audio.credit || '';
+    return '<div class="bird-card" data-region="' + bird.region + '" data-date="' + (bird.date || '') + '">' +
+      '<img' +
+        ' src="' + bird.thumbAvif + '"' +
+        ' class="bird-card-img"' +
+        ' loading="lazy"' +
+        ' decoding="async"' +
+        ' data-large-avif="' + bird.largeAvif + '"' +
+        ' data-title="' + bird.title + '"' +
+        ' data-location="' + bird.region + '"' +
+        ' data-place="' + bird.place + '"' +
+        ' data-date="' + (bird.date || '') + '"' +
+        ' data-audio="' + audioSrc + '"' +
+        ' data-audio-credit="' + audioCredit + '"' +
+        ' alt="' + bird.title + '">' +
+      '<div class="bird-card-caption">' +
+        '<div class="bird-card-name">' + bird.title + '</div>' +
+        '<div class="bird-card-meta">' + bird.place + (bird.date ? ' &middot; ' + bird.date : '') + '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
   function initGalleryPage(birds) {
     var galleryGrid = document.getElementById('galleryGrid');
     if (!galleryGrid) return;
 
-    galleryGrid.innerHTML = birds.map(function(bird) {
-      var audio = bird.audio || {};
-      var audioSrc = audio.src || '';
-      var audioCredit = audio.credit || '';
-      var dateParts = (bird.date || '').split('-');
-      var dateDisplay = bird.date ? bird.date : '';
+    birds = birds.slice().sort(function(a, b) {
+      return (b.date || '').localeCompare(a.date || '');
+    });
 
-      return '<div class="bird-card" data-region="' + bird.region + '" data-date="' + (bird.date || '') + '">' +
-        '<img' +
-          ' src="' + bird.thumbAvif + '"' +
-          ' class="bird-card-img"' +
-          ' loading="lazy"' +
-          ' decoding="async"' +
-          ' data-large-avif="' + bird.largeAvif + '"' +
-          ' data-title="' + bird.title + '"' +
-          ' data-location="' + bird.region + '"' +
-          ' data-place="' + bird.place + '"' +
-          ' data-date="' + (bird.date || '') + '"' +
-          ' data-audio="' + audioSrc + '"' +
-          ' data-audio-credit="' + audioCredit + '"' +
-          ' alt="' + bird.title + '">' +
-        '<div class="bird-card-caption">' +
-          '<div class="bird-card-name">' + bird.title + '</div>' +
-          '<div class="bird-card-meta">' + bird.place + (bird.date ? ' &middot; ' + bird.date : '') + '</div>' +
-        '</div>' +
-      '</div>';
+    var numCols = getColumnCount();
+    var cols = [];
+    for (var i = 0; i < numCols; i++) cols.push([]);
+    birds.forEach(function(bird, i) { cols[i % numCols].push(bird); });
+
+    galleryGrid.innerHTML = cols.map(function(colBirds) {
+      return '<div class="gallery-col">' + colBirds.map(cardHTML).join('') + '</div>';
     }).join('');
 
     var totalCountEl = document.getElementById('totalCount');
@@ -67,6 +85,199 @@ import Lightbox from './Lightbox.astro';
     setupSearchFilterRandom();
     setupScrollTop();
     setupCardAnimations();
+  }
+
+  // --- LIGHTBOX ---
+  function getVisibleCards() {
+    return Array.from(document.querySelectorAll('#galleryGrid .bird-card')).filter(function(c) {
+      return c.style.display !== 'none';
+    });
+  }
+
+  function openLightbox(card) {
+    lbCards = getVisibleCards();
+    lbIndex = lbCards.indexOf(card);
+    showLightboxAt(lbIndex);
+
+    var overlay = document.getElementById('lightboxOverlay');
+    if (overlay) overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function showLightboxAt(idx) {
+    lbCards = getVisibleCards();
+    if (idx < 0 || idx >= lbCards.length) return;
+    lbIndex = idx;
+
+    var card = lbCards[idx];
+    var img = card.querySelector('.bird-card-img');
+    if (!img) return;
+
+    var lbImg = document.getElementById('lightboxImage');
+    var lbName = document.getElementById('lightboxName');
+    var lbMeta = document.getElementById('lightboxMeta');
+    var lbAttr = document.getElementById('lightboxAttribution');
+
+    if (lbImg) {
+      lbImg.style.transform = 'none';
+      lbImg.src = img.dataset.largeAvif || img.src;
+      lbImg.alt = img.alt;
+    }
+    if (lbName) lbName.textContent = img.dataset.title || img.alt || '';
+    if (lbMeta) {
+      var place = img.dataset.place || '';
+      var date = img.dataset.date || '';
+      lbMeta.textContent = [place, date].filter(Boolean).join(' · ');
+    }
+    if (lbAttr) lbAttr.textContent = img.dataset.audioCredit || '';
+
+    if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+    var audioSrc = img.dataset.audio;
+    if (audioSrc) {
+      currentAudio = new Audio(audioSrc);
+      currentAudio.play().catch(function() {});
+    }
+  }
+
+  function closeLightbox() {
+    var overlay = document.getElementById('lightboxOverlay');
+    var lbImg = document.getElementById('lightboxImage');
+    if (overlay) overlay.classList.remove('show');
+    if (lbImg) { lbImg.src = ''; lbImg.style.transform = 'none'; }
+    document.body.style.overflow = '';
+    if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+
+    // Scroll back to the last viewed card
+    if (lbIndex >= 0 && lbIndex < lbCards.length) {
+      var card = lbCards[lbIndex];
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    lbIndex = -1;
+  }
+
+  function setupLightbox() {
+    var overlay = document.getElementById('lightboxOverlay');
+    var lbImg = document.getElementById('lightboxImage');
+    var closeBtn = document.getElementById('lightboxClose');
+
+    if (closeBtn) closeBtn.addEventListener('click', function(e) { e.stopPropagation(); closeLightbox(); });
+
+    if (overlay) {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeLightbox();
+      });
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (!overlay || !overlay.classList.contains('show')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showLightboxAt(lbIndex + 1);
+      if (e.key === 'ArrowLeft') showLightboxAt(lbIndex - 1);
+    });
+
+    // Card click
+    document.getElementById('galleryGrid').addEventListener('click', function(e) {
+      var card = e.target.closest('.bird-card');
+      if (card && card.style.display !== 'none') openLightbox(card);
+    });
+
+    // --- Touch: swipe to navigate + pinch to zoom ---
+    if (!lbImg) return;
+
+    var touchStartX = 0, touchStartY = 0;
+    var touchCurX = 0;
+    var isPinching = false;
+    var pinchStartDist = 0;
+    var pinchStartScale = 1;
+    var imgScale = 1;
+    var imgTranslateX = 0, imgTranslateY = 0;
+    var panStartX = 0, panStartY = 0;
+
+    function getTouchDist(t) {
+      var dx = t[0].clientX - t[1].clientX;
+      var dy = t[0].clientY - t[1].clientY;
+      return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    function applyTransform(animated) {
+      lbImg.style.transition = animated ? 'transform 0.2s ease' : 'none';
+      lbImg.style.transform = 'translate(' + imgTranslateX + 'px, ' + imgTranslateY + 'px) scale(' + imgScale + ')';
+    }
+
+    function resetZoom() {
+      imgScale = 1; imgTranslateX = 0; imgTranslateY = 0;
+      applyTransform(true);
+    }
+
+    var recentlyPinched = false;
+
+    lbImg.addEventListener('touchstart', function(e) {
+      if (e.touches.length === 2) {
+        isPinching = true;
+        recentlyPinched = true;
+        pinchStartDist = getTouchDist(e.touches);
+        pinchStartScale = imgScale;
+        e.preventDefault();
+      } else if (e.touches.length === 1) {
+        isPinching = false;
+        touchStartX = touchCurX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        if (imgScale > 1) {
+          panStartX = imgTranslateX;
+          panStartY = imgTranslateY;
+        }
+      }
+    }, { passive: false });
+
+    lbImg.addEventListener('touchmove', function(e) {
+      e.preventDefault();
+      if (e.touches.length === 2 && isPinching) {
+        var dist = getTouchDist(e.touches);
+        imgScale = Math.max(1, Math.min(5, pinchStartScale * (dist / pinchStartDist)));
+        applyTransform(false);
+      } else if (e.touches.length === 1 && !isPinching) {
+        touchCurX = e.touches[0].clientX;
+        if (imgScale > 1) {
+          imgTranslateX = panStartX + (e.touches[0].clientX - touchStartX);
+          imgTranslateY = panStartY + (e.touches[0].clientY - touchStartY);
+          applyTransform(false);
+        } else {
+          var dx = touchCurX - touchStartX;
+          lbImg.style.transition = 'none';
+          lbImg.style.transform = 'translateX(' + dx + 'px)';
+        }
+      }
+    }, { passive: false });
+
+    lbImg.addEventListener('touchend', function(e) {
+      if (isPinching || e.touches.length >= 2) return;
+      if (e.touches.length === 0 && recentlyPinched) {
+        // All fingers lifted after a pinch — just clean up, no swipe/double-tap
+        isPinching = false;
+        if (imgScale <= 1) resetZoom();
+        setTimeout(function() { recentlyPinched = false; }, 400);
+        return;
+      }
+      isPinching = false;
+      var dx = touchCurX - touchStartX;
+      if (imgScale > 1) return;
+      if (Math.abs(dx) > 50) {
+        if (dx < 0) showLightboxAt(lbIndex + 1);
+        else showLightboxAt(lbIndex - 1);
+      } else {
+        lbImg.style.transition = 'transform 0.2s ease';
+        lbImg.style.transform = 'none';
+      }
+    }, { passive: false });
+
+    // Double-tap to reset zoom (only when not pinching)
+    var lastTap = 0;
+    lbImg.addEventListener('touchend', function(e) {
+      if (recentlyPinched || isPinching) return;
+      var now = Date.now();
+      if (now - lastTap < 300) resetZoom();
+      lastTap = now;
+    });
   }
 
   // --- STAGGERED CARD ANIMATIONS ---
@@ -126,114 +337,6 @@ import Lightbox from './Lightbox.astro';
     }).join('');
   }
 
-  // --- LIGHTBOX with PREV/NEXT ---
-  function setupLightbox() {
-    var overlay = document.getElementById('lightboxOverlay');
-    var overlayImg = document.getElementById('lightboxImage');
-    var lightboxName = document.getElementById('lightboxName');
-    var lightboxMeta = document.getElementById('lightboxMeta');
-    var overlayAttrib = document.getElementById('lightboxAttribution');
-    var prevBtn = document.getElementById('lightboxPrev');
-    var nextBtn = document.getElementById('lightboxNext');
-    var closeBtn = document.getElementById('lightboxClose');
-
-    if (!overlay) return;
-
-    function getVisibleCards() {
-      return Array.from(document.querySelectorAll('#galleryGrid .bird-card')).filter(function(card) {
-        return card.style.display !== 'none';
-      });
-    }
-
-    function openLightboxByIndex(idx) {
-      visibleCards = getVisibleCards();
-      if (idx < 0 || idx >= visibleCards.length) return;
-      currentLightboxIndex = idx;
-
-      var card = visibleCards[idx];
-      var imgEl = card.querySelector('.bird-card-img');
-      if (!imgEl) return;
-
-      overlayImg.style.opacity = '0';
-      overlayImg.onload = function() {
-        overlayImg.style.opacity = '';
-      };
-      overlayImg.src = imgEl.dataset.largeAvif || imgEl.getAttribute('src');
-      overlayImg.alt = imgEl.dataset.title || '';
-
-      if (lightboxName) lightboxName.textContent = imgEl.dataset.title || '';
-      if (lightboxMeta) {
-        var place = imgEl.dataset.place || '';
-        var date = imgEl.dataset.date || '';
-        lightboxMeta.textContent = place && date ? place + ' · ' + date : (place || date);
-      }
-
-      overlay.classList.add('show');
-
-      if (currentAudio) { currentAudio.pause(); currentAudio = null; }
-
-      var audioSrc = imgEl.dataset.audio;
-      var audioCredit = imgEl.dataset.audioCredit || '';
-      if (overlayAttrib) overlayAttrib.textContent = audioCredit;
-
-      if (audioSrc) {
-        currentAudio = new Audio(audioSrc);
-        currentAudio.play().catch(function(err) {
-          console.warn('Audio autoplay blocked:', err);
-        });
-      }
-
-      // Show/hide arrows
-      if (prevBtn) prevBtn.style.opacity = idx === 0 ? '0.3' : '';
-      if (nextBtn) nextBtn.style.opacity = idx === visibleCards.length - 1 ? '0.3' : '';
-    }
-
-    function closeLightbox() {
-      overlay.classList.remove('show');
-      overlayImg.src = '';
-      if (lightboxName) lightboxName.textContent = '';
-      if (lightboxMeta) lightboxMeta.textContent = '';
-      if (overlayAttrib) overlayAttrib.textContent = '';
-      if (currentAudio) { currentAudio.pause(); currentAudio = null; }
-      currentLightboxIndex = -1;
-    }
-
-    // Click on gallery cards
-    document.getElementById('galleryGrid').addEventListener('click', function(e) {
-      var card = e.target.closest('.bird-card');
-      if (!card) return;
-      visibleCards = getVisibleCards();
-      var idx = visibleCards.indexOf(card);
-      if (idx !== -1) openLightboxByIndex(idx);
-    });
-
-    // Overlay click to close (but not on buttons/image)
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay || e.target === overlayImg) closeLightbox();
-    });
-
-    // Close button
-    if (closeBtn) closeBtn.addEventListener('click', function(e) { e.stopPropagation(); closeLightbox(); });
-
-    // Prev / Next
-    if (prevBtn) prevBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      if (currentLightboxIndex > 0) openLightboxByIndex(currentLightboxIndex - 1);
-    });
-    if (nextBtn) nextBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      if (currentLightboxIndex < visibleCards.length - 1) openLightboxByIndex(currentLightboxIndex + 1);
-    });
-
-    // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
-      if (!overlay.classList.contains('show')) return;
-      if (e.key === 'Escape') { closeLightbox(); }
-      else if (e.key === 'ArrowLeft') { if (currentLightboxIndex > 0) openLightboxByIndex(currentLightboxIndex - 1); }
-      else if (e.key === 'ArrowRight') { if (currentLightboxIndex < visibleCards.length - 1) openLightboxByIndex(currentLightboxIndex + 1); }
-    });
-  }
-
   // --- SEARCH / FILTER / RANDOM ---
   function setupSearchFilterRandom() {
     var searchInput = document.getElementById('searchInput');
@@ -281,7 +384,6 @@ import Lightbox from './Lightbox.astro';
       return out;
     }
 
-    // Initialise discrete month ticks
     var cards = getCards();
     var birdYMs = cards.map(function(card) {
       return (card.dataset.date || '').trim();
