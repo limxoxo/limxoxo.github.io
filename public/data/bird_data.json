@@ -997,5 +997,14 @@
     "thumbAvif": "images/thumbs/bird-87.avif",
     "largeAvif": "images/large/bird-87.avif",
     "date": "2026-03"
+  },
+  {
+    "id": 88,
+    "title": "Grey Teal",
+    "region": "victoria",
+    "place": "Bittern Reservoir",
+    "thumbAvif": "images/thumbs/bird-88.avif",
+    "largeAvif": "images/large/bird-88.avif",
+    "date": "2026-03"
   }
 ]
