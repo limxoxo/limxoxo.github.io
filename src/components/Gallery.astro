@@ -65,7 +65,9 @@ import Lightbox from './Lightbox.astro';
     if (!galleryGrid) return;
 
     birds = birds.slice().sort(function(a, b) {
-      return (b.date || '').localeCompare(a.date || '');
+      var dateCmp = (b.date || '').localeCompare(a.date || '');
+      if (dateCmp !== 0) return dateCmp;
+      return (b.id || 0) - (a.id || 0);
     });
 
     var numCols = getColumnCount();
