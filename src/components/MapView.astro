@@ -109,13 +109,15 @@ import Lightbox from './Lightbox.astro';
 
       var thumbsHtml = birdsHere.map(function(bird) {
         var safeTitle = bird.title.replace(/'/g, "\\'");
+        var thumbSrc = '/' + bird.thumbAvif;
+        var largeSrc = '/' + bird.largeAvif;
         return '<img' +
-          ' src="' + bird.thumbAvif + '"' +
+          ' src="' + thumbSrc + '"' +
           ' class="popup-thumb"' +
           ' alt="' + bird.title + '"' +
           ' loading="lazy"' +
           ' decoding="async"' +
-          ' onclick="openLightbox(\'' + bird.largeAvif + '\', \'' + safeTitle + '\')"' +
+          ' onclick="openLightbox(\'' + largeSrc + '\', \'' + safeTitle + '\')"' +
         '>';
       }).join('');
 
