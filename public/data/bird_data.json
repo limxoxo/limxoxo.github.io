@@ -1096,5 +1096,59 @@
     "thumbAvif": "images/thumbs/bird-98.avif",
     "largeAvif": "images/large/bird-98.avif",
     "date": "2026-03"
+  },
+  {
+    "id": 99,
+    "title": "Laughing Kookaburra",
+    "region": "victoria",
+    "place": "Balbirooroo Wetlands",
+    "thumbAvif": "images/thumbs/bird-99.avif",
+    "largeAvif": "images/large/bird-99.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 100,
+    "title": "Spotted Pardalote",
+    "region": "victoria",
+    "place": "Balbirooroo Wetlands",
+    "thumbAvif": "images/thumbs/bird-100.avif",
+    "largeAvif": "images/large/bird-100.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 101,
+    "title": "Red-Capped Plover",
+    "region": "victoria",
+    "place": "Coolart Wetlands & Homestead",
+    "thumbAvif": "images/thumbs/bird-101.avif",
+    "largeAvif": "images/large/bird-101.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 102,
+    "title": "Brown Goshawk",
+    "region": "victoria",
+    "place": "Coolart Wetlands & Homestead",
+    "thumbAvif": "images/thumbs/bird-102.avif",
+    "largeAvif": "images/large/bird-102.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 103,
+    "title": "Brown Thornbill",
+    "region": "victoria",
+    "place": "Coolart Wetlands & Homestead",
+    "thumbAvif": "images/thumbs/bird-103.avif",
+    "largeAvif": "images/large/bird-103.avif",
+    "date": "2026-03"
+  },
+  {
+    "id": 104,
+    "title": "Welcome Swallow",
+    "region": "victoria",
+    "place": "Coolart Wetlands & Homestead",
+    "thumbAvif": "images/thumbs/bird-104.avif",
+    "largeAvif": "images/large/bird-104.avif",
+    "date": "2026-03"
   }
 ]
