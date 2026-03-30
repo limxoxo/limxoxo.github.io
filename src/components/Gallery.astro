@@ -91,9 +91,21 @@ import Lightbox from './Lightbox.astro';
 
   // --- LIGHTBOX ---
   function getVisibleCards() {
-    return Array.from(document.querySelectorAll('#galleryGrid .bird-card')).filter(function(c) {
-      return c.style.display !== 'none';
+    // Interleave columns row-by-row so swipe/arrow navigation goes left→right
+    var cols = Array.from(document.querySelectorAll('#galleryGrid .gallery-col'));
+    var colCards = cols.map(function(col) {
+      return Array.from(col.querySelectorAll('.bird-card')).filter(function(c) {
+        return c.style.display !== 'none';
+      });
     });
+    var result = [];
+    var maxLen = Math.max.apply(null, colCards.map(function(c) { return c.length; }));
+    for (var row = 0; row < maxLen; row++) {
+      for (var col = 0; col < colCards.length; col++) {
+        if (colCards[col][row]) result.push(colCards[col][row]);
+      }
+    }
+    return result;
   }
 
   function openLightbox(card) {
