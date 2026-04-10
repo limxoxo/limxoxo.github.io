@@ -20,6 +20,18 @@
   gap: var(--space-5);
 }
 
+.nav-logo {
+  height: 32px;
+  width: auto;
+  display: block;
+  filter: invert(0);
+  transition: filter var(--transition-fast);
+}
+
+body.dark-mode .nav-logo {
+  filter: invert(1);
+}
+
 .nav-brand {
   font-family: var(--font-serif);
   font-size: var(--text-lg);

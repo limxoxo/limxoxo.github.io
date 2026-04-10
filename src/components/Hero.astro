@@ -1,0 +1,178 @@
+---
+---
+
+<div id="hero-wrap">
+  <canvas id="hero-canvas"></canvas>
+  <div id="hero-text">
+    <h1 class="hero-title">Birds by Selim</h1>
+    <p class="hero-sub"><3</p>
+  </div>
+  <div id="hero-fade"></div>
+</div>
+
+<style is:global>
+  #hero-wrap {
+    position: relative;
+    width: 100%;
+    height: 72vh;
+    min-height: 420px;
+    overflow: hidden;
+    background: #000;
+  }
+  #hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  #hero-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    pointer-events: none;
+    text-align: center;
+    padding: 0 1.5rem;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 0 2px 40px rgba(0, 0, 0, 0.6);
+  }
+  .hero-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.38);
+    margin: 1.2rem 0 0;
+  }
+  #hero-fade {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 180px;
+    z-index: 3;
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent, #faf9f7);
+  }
+  body.dark-mode #hero-fade {
+    background: linear-gradient(to bottom, transparent, #111110);
+  }
+</style>
+
+<!-- All imports via esm.sh full URLs — no import map needed, avoids Astro ordering issues -->
+<script is:inline type="module">
+// Use esm.sh for everything so three is the same shared instance across all packages
+import * as THREE from 'https://esm.sh/three@0.165.0';
+import { STLLoader } from 'https://esm.sh/three@0.165.0/examples/jsm/loaders/STLLoader.js';
+import { EffectComposer, RenderPass } from 'https://esm.sh/postprocessing@6.36.3?deps=three@0.165.0';
+import { GodraysPass } from 'https://esm.sh/three-good-godrays@0.11.2?deps=three@0.165.0,postprocessing@6.36.3';
+
+const wrap   = document.getElementById('hero-wrap');
+const canvas = document.getElementById('hero-canvas');
+const W = () => wrap.clientWidth;
+const H = () => wrap.clientHeight;
+
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+renderer.setSize(W(), H());
+renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.shadowMap.autoUpdate = true;
+
+const scene  = new THREE.Scene();
+scene.background = new THREE.Color(0x000000);
+const camera = new THREE.PerspectiveCamera(42, W() / H(), 0.1, 2000);
+camera.position.set(0, 0, 22);
+
+// Ambient fill
+scene.add(new THREE.AmbientLight(0xffffff, 0.12));
+
+// Directional light — positioned upper-left, within frustum
+const sunLight = new THREE.DirectionalLight(0xffffff, 4);
+sunLight.position.set(0, 0, -30);
+sunLight.target.position.set(0,0,10);
+sunLight.castShadow = true;
+sunLight.shadow.mapSize.width = 1024;
+sunLight.shadow.mapSize.height = 1024;
+sunLight.shadow.autoUpdate = true;
+sunLight.shadow.camera.near = 0.1;
+sunLight.shadow.camera.far = 100;
+sunLight.shadow.camera.left = -5;
+sunLight.shadow.camera.right = 5;
+sunLight.shadow.camera.top = 5;
+sunLight.shadow.camera.bottom = -5;
+sunLight.shadow.camera.updateProjectionMatrix();
+scene.add(sunLight);
+scene.add(sunLight.target);
+
+
+// Post-processing
+const composer = new EffectComposer(renderer, { frameBufferType: THREE.HalfFloatType });
+const renderPass = new RenderPass(scene, camera);
+renderPass.renderToScreen = false;
+composer.addPass(renderPass);
+
+const godrays = new GodraysPass(sunLight, camera, {
+  density:             0.01,
+  maxDensity:          0.8,
+  edgeStrength:        2,
+  edgeRadius:          2,
+  distanceAttenuation: 0.4,
+  color:               new THREE.Color(0xffffff),
+  raymarchSteps:       120,
+  blur:                false,
+  gammaCorrection:     true,
+});
+godrays.renderToScreen = true;
+composer.addPass(godrays);
+
+// Load the SD logo
+let model = null;
+let modelScale = 1;
+new STLLoader().load('/models/SD.stl', (geo) => {
+  geo.computeVertexNormals();
+  geo.computeBoundingBox();
+  const c = new THREE.Vector3();
+  geo.boundingBox.getCenter(c);
+  geo.translate(-c.x, -c.y, -c.z);
+  const size = new THREE.Vector3();
+  geo.boundingBox.getSize(size);
+  modelScale = 10 / Math.max(size.x, size.y, size.z);
+  model = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: 0x1a1a1a, metalness: 1, roughness: 1 }));
+  model.scale.setScalar(modelScale);
+  model.castShadow = true;
+  model.receiveShadow = true;
+  scene.add(model);
+});
+
+new ResizeObserver(() => {
+  camera.aspect = W() / H();
+  camera.updateProjectionMatrix();
+  renderer.setSize(W(), H());
+  composer.setSize(W(), H());
+}).observe(wrap);
+
+const clock = new THREE.Clock();
+(function animate() {
+  requestAnimationFrame(animate);
+  const t = clock.getElapsedTime();
+  if (model) {
+    model.rotation.y = t * 0.3;
+    model.scale.x = (Math.cos(model.rotation.y) >= 0 ? 1 : -1) * modelScale;
+    model.rotation.x = Math.sin(t * 0.15) * 0.08;
+  }
+  composer.render();
+})();
+</script>

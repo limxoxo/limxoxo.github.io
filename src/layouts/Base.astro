@@ -39,14 +39,15 @@ const {
     gtag('config', 'G-N7NXSDJGF6');
   </script>
 
-  <!-- Dark mode: apply before paint to prevent flash -->
+  <!-- Dark mode: dark by default, apply before paint to prevent flash -->
   <script is:inline>
     (function() {
-      if (localStorage.getItem('theme') === 'dark') {
+      if (localStorage.getItem('theme') !== 'light') {
         document.documentElement.classList.add('dark-mode');
       }
     })();
   </script>
+  <slot name="head" />
 </head>
 
 <body>
